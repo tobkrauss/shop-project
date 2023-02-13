@@ -1,5 +1,4 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -9,4 +8,51 @@ a {
 
 h1 {
   color: 15px;
+}
+
+.navbar {
+  background-color: black;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+.nav-btn {
+  color: #bf8970;
+  text-decoration: none;
+  margin-right: 50px;
+}
+
+.footer {
+  font-size: 1.4em;
+  text-align: center;
+  padding: 40px 100px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-background {
+  background-color:black;
+  color: #bf8970;
+}
+
+.map-frame {
+  height: 200px;
+  width: 60%;
+}
+
+.imprint-container {
+  display: flex;
+  text-align: center;
+  margin: 20px 0 0 10px;
+}
+
+.imprint-span {
+  font-size: 0.8em;
+  text-decoration: underline;
+  display: flex;
+  margin: 0 10px;
 }

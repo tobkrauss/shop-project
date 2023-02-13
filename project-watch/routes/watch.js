@@ -21,7 +21,7 @@ router.get("/", async (req, res) => {
     console.log("RESPONSE DATA*****", response.data);
     // res.send(response.data);
     console.log("REQUEST BODY*****", req.body);
-    res.render("apihome", { response: response.data });
+    res.render("index", { response: response.data });
   } catch (error) {
     console.error(error);
     res.send("An error occurred while retrieving the data");

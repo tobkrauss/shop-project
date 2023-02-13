@@ -90,3 +90,40 @@ margin: 10px auto;
   display: flex;
   margin: 10px 10px;
 }
+
+.search-home {
+  width: 800px;
+  height: auto;
+  margin: 50px auto 30px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+}
+
+.search-form {
+  display: flex;
+  flex-direction: row;
+  margin: 0 10px;
+}
+
+.search-home input {
+  width: 30vw;
+  height: 5vh;
+  font-size: 1.4em;
+  border-radius: 5px;
+  margin-right: 5px;
+  border-color: lightgrey;
+}
+
+.search-home button {
+  height: 5.6vh;
+  width: 7.5vw;
+  font-size: 1.4em;
+  background-color: #bf8970;
+  border-color: #bf8970;
+  color: black;
+  border-radius: 5px;
+  margin-left: 5px;
+}

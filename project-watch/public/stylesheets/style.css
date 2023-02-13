@@ -53,7 +53,7 @@ margin: 10px auto;
 }
 
 .footer {
-  font-size: 1.4em;
+  font-size: 1.2em;
   text-align: center;
   padding: 40px 100px;
   margin-bottom: 25px;
@@ -83,4 +83,10 @@ margin: 10px auto;
   text-decoration: underline;
   display: flex;
   margin: 0 10px;
+}
+
+.imprint-copyright {
+  font-size: 0.8em;
+  display: flex;
+  margin: 10px 10px;
 }

@@ -1,5 +1,6 @@
 <h1>family models go here!!!</h1>
 
 {{#each response}}
-  <a href="/models?model={{this.modelName}}"><h1> {{this.modelName}}</h1></a>
+  <a href="/models/:id?model={{this.modelName}}"><h1>
+      {{this.modelName}}</h1></a>
 {{/each}}

@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
       method: "GET",
       url: "https://watch-database1.p.rapidapi.com/all-family-by/brandname/Rolex",
       headers: {
-        "X-RapidAPI-Key": "7a4c9182dfmshf3d7c7d3a24a10ep1f5694jsn1a57f9c142ed",
+        "X-RapidAPI-Key": "50448e6470mshcf846b608d3b6b5p1dd0cfjsn242262d2096e",
         "X-RapidAPI-Host": "watch-database1.p.rapidapi.com",
       },
     });
@@ -36,7 +36,7 @@ router.get("/models", async (req, res) => {
       method: "GET",
       url: `https://watch-database1.p.rapidapi.com/all-models-by/brandname/Rolex/family/${family}`,
       headers: {
-        "X-RapidAPI-Key": "7a4c9182dfmshf3d7c7d3a24a10ep1f5694jsn1a57f9c142ed",
+        "X-RapidAPI-Key": "50448e6470mshcf846b608d3b6b5p1dd0cfjsn242262d2096e",
         "X-RapidAPI-Host": "watch-database1.p.rapidapi.com",
       },
     });
@@ -50,21 +50,24 @@ router.get("/models", async (req, res) => {
 });
 
 // get specific model
-router.get("/models?model", async (req, res) => {
+router.get("/models/:id", async (req, res) => {
   const family = req.query.family;
   const model = req.query.model;
+  console.log(model);
   try {
     const response = await axios({
       method: "GET",
       url: `https://watch-database1.p.rapidapi.com/all-watches-by/brandname/Rolex/family/${family}/model/${model}`,
+      // url: "https://watch-database1.p.rapidapi.com/all-watches-by/brandname/Omega/family/Aqua%20Terra/model/2005.75.00",
       headers: {
-        "X-RapidAPI-Key": "7a4c9182dfmshf3d7c7d3a24a10ep1f5694jsn1a57f9c142ed",
+        "X-RapidAPI-Key": "50448e6470mshcf846b608d3b6b5p1dd0cfjsn242262d2096e",
         "X-RapidAPI-Host": "watch-database1.p.rapidapi.com",
       },
     });
-    // res.send(response.data);
+    // console.log("hello from endpoibnt");
+    res.send(response.data);
     // res.send("fetching specific model");
-    res.render("watch-details", { response: response.data });
+    // res.render("watch-details", { response: response.data });
   } catch (error) {
     console.error(error);
     res.send("An error occurred while retrieving the data");

@@ -38,7 +38,7 @@ margin: 10px auto;
   font-weight: bold;
 }
 
-.navbar {
+.navbar-home {
   background-color: black;
   height: 100px;
   display: flex;
@@ -46,10 +46,32 @@ margin: 10px auto;
   justify-content: right;
 }
 
+.navbar-left{
+  background-color: black;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.navbar-profile {
+  background-color: black;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .nav-btn {
   color: #bf8970;
   text-decoration: none;
   margin-right: 50px;
+}
+
+.nav-home {
+  color: #bf8970;
+  text-decoration: none;
+  margin-left: 50px;
 }
 
 .footer {

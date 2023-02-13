@@ -18,6 +18,7 @@ router.post("/auth/signup", (req, res, next) => {
 
   if (password.length < 8) {
     res.render("signup", { message: "Password has to be minimum 8 characters" })
+    return
   }
 
   // Validation passed
@@ -57,7 +58,7 @@ router.post("/auth/login", (req, res, next) => {
     .then(userFromDB => {
       if (userFromDB === null) {
         // User not found in database => show login form
-        res.render("login", { message: "Wrong credentials" })
+        res.render("login", { message: "This username does not exist. If you don't have an account, yet, signup first" })
         return
       }
 

@@ -1,1 +1,5 @@
 <h1>THIS IS THE API HOMEPAGE!</h1>
+
+{{#each response}}
+  <a href="/models?family={{this.familyName}}"><h1> {{this.familyName}}</h1></a>
+{{/each}}

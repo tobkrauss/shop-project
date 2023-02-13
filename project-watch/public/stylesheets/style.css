@@ -2,12 +2,40 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00b7ff;
+.login-box {
+  height: 320px;
+  width: 330px;
+  border: 2px solid lightgrey;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  margin: 50px auto 200px;
+  text-align: center;
+  padding: 20px;
 }
 
-h1 {
-  color: 15px;
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.login-form input {
+height: 40px;
+width: 240px;
+margin: 10px auto;
+}
+
+.login-form button {
+  height: 30px;
+  width: 248px;
+  margin: 10px auto 0 auto;
+  border-radius: 5px;
+  background-color: #bf8970;
+  border-color: lightgrey;
+  font-size: 1.1em;
+  font-weight: bold;
 }
 
 .navbar {

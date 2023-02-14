@@ -8,7 +8,8 @@ const router = express.Router();
 // });
 
 router.get("/profile", isLoggedin, (req, res, next) => {
-  res.render("profile");
+  const user = req.session.user
+  res.render("profile", {user});
 });
 
 module.exports = router;

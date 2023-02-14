@@ -20,6 +20,9 @@
 <button type="submit" class="home-btn">Search</button>
 </form>
 </section>
+<form action="/create-checkout-session" method="POST">
+        <button type="submit" id="checkout-button">Checkout</button>
+      </form>
 {{#each response}}
   <a href="/models?family={{this.familyName}}"><h1> {{this.familyName}}</h1></a>
 {{/each}}

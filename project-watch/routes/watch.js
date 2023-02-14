@@ -6,6 +6,22 @@ const axios = require("axios");
 //   res.render("watch-details");
 // });
 
+// get images
+router.get("/", async (req, res) => {
+  const response = await axios({
+    method: "GET",
+    // url: "https://watch-database1.p.rapidapi.com/all-family-by/brandname/Rolex",
+    url: "https://watch-database1.p.rapidapi.com/watch-media-links-by-id/91894",
+    headers: {
+      "X-RapidAPI-Key": "322cdd67b9msh825ad01241d6cccp1e397fjsnd3220b54691f",
+      "X-RapidAPI-Host": "watch-database1.p.rapidapi.com",
+    },
+  });
+  console.log("getting watch image");
+  console.log("IMAGE DATA:", response.data[0]);
+  res.render("index", { response: response.data[0] });
+});
+
 // get all family by brand name
 router.get("/", async (req, res) => {
   try {

@@ -1,25 +1,22 @@
 const express = require("express");
 const router = express.Router();
+const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
+const { application, json } = require('express');
 
-const button = document.getElementById("checkout-button")
-button.addEventListener("click", () => {
-    fetch('/create-checkout-session', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        items: [
-          {id: 1, quantity: 2},
-          {id: 2, quantity: 1}
-        ]
-      })
-    })
-.then(res =>{
-  if(res.ok) return res.json()
-}).then (({ url }) => {
-  window.location = url
-}). catch(err => next(err))
-})
+
+router.post('/create-checkout-session', async (req, res) => {
+  const session = await stripe.checkout.sessions.create({
+       payment_method_types: ['card'],
+       mode: 'payment',
+       line_items: [price, quantity] ,
+       success_url: `${process.env.SERVER_URL}/success.html`,
+       cancel_url: `${process.env.SERVER_URL}/cancel.html`,
+    
+  });
+  res.render("checkout-session", {url: session.url})
+  
+});
+
+
 
 module.exports = router;

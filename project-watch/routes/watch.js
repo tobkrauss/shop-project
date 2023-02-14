@@ -7,20 +7,24 @@ const axios = require("axios");
 // });
 
 // get images
-router.get("/", async (req, res) => {
-  const response = await axios({
-    method: "GET",
-    // url: "https://watch-database1.p.rapidapi.com/all-family-by/brandname/Rolex",
-    url: "https://watch-database1.p.rapidapi.com/watch-media-links-by-id/91894",
-    headers: {
-      "X-RapidAPI-Key": "322cdd67b9msh825ad01241d6cccp1e397fjsnd3220b54691f",
-      "X-RapidAPI-Host": "watch-database1.p.rapidapi.com",
-    },
-  });
-  console.log("getting watch image");
-  console.log("IMAGE DATA:", response.data[0]);
-  res.render("index", { response: response.data[0] });
-});
+// router.get("/images", async (req, res) => {
+//   try {
+//     const response = await axios({
+//       method: "GET",
+//       url: "https://watch-database1.p.rapidapi.com/watch-media-links-by-id/91894",
+//       headers: {
+//         "X-RapidAPI-Key": "322cdd67b9msh825ad01241d6cccp1e397fjsnd3220b54691f",
+//         "X-RapidAPI-Host": "watch-database1.p.rapidapi.com",
+//       },
+//     });
+//     console.log("getting watch image");
+//     console.log("IMAGE DATA:", response.data[0]);
+//     res.render("index", { images: response.data[0], families: null });
+//   } catch (err) {
+//     console.log(err);
+//     res.send("An error occurred while retrieving the data");
+//   }
+// });
 
 // get all family by brand name
 router.get("/", async (req, res) => {
@@ -29,15 +33,12 @@ router.get("/", async (req, res) => {
       method: "GET",
       url: "https://watch-database1.p.rapidapi.com/all-family-by/brandname/Rolex",
       headers: {
-        "X-RapidAPI-Key": "322cdd67b9msh825ad01241d6cccp1e397fjsnd3220b54691f",
+        "X-RapidAPI-Key": "bf9fdb77dcmshd6868a03eb6d050p1b91d0jsn5b18fc60f300",
         "X-RapidAPI-Host": "watch-database1.p.rapidapi.com",
       },
     });
-    console.log("getting watch");
-    console.log("RESPONSE DATA*****", response.data);
-    // res.send(response.data);
-    console.log("REQUEST BODY*****", req.body);
-    res.render("index", { response: response.data });
+    console.log("GETTING WATCH FAMILY!!!!");
+    res.render("index", { images: null, families: response.data });
   } catch (error) {
     console.error(error);
     res.send("An error occurred while retrieving the data");
@@ -52,7 +53,7 @@ router.get("/models", async (req, res) => {
       method: "GET",
       url: `https://watch-database1.p.rapidapi.com/all-models-by/brandname/Rolex/family/${family}`,
       headers: {
-        "X-RapidAPI-Key": "322cdd67b9msh825ad01241d6cccp1e397fjsnd3220b54691f",
+        "X-RapidAPI-Key": "bf9fdb77dcmshd6868a03eb6d050p1b91d0jsn5b18fc60f300",
         "X-RapidAPI-Host": "watch-database1.p.rapidapi.com",
       },
     });
@@ -73,24 +74,68 @@ router.get("/models/:family/:model", async (req, res) => {
   console.log("family", family);
   console.log("model", model);
   try {
-    const response = await axios({
+    const responseData = await axios({
       method: "GET",
       url: `https://watch-database1.p.rapidapi.com/all-watches-by/brandname/Rolex/family/${family}/model/${model}`,
-      // url: "https://watch-database1.p.rapidapi.com/all-watches-by/brandname/Omega/family/Aqua%20Terra/model/2005.75.00",
       headers: {
-        "X-RapidAPI-Key": "322cdd67b9msh825ad01241d6cccp1e397fjsnd3220b54691f",
+        "X-RapidAPI-Key": "bf9fdb77dcmshd6868a03eb6d050p1b91d0jsn5b18fc60f300",
         "X-RapidAPI-Host": "watch-database1.p.rapidapi.com",
       },
     });
-    // console.log("hello from endpoibnt");
-    // res.send(response.data);
-    // res.send("fetching specific model");
-    console.log(response.data);
-    res.render("watch-details", { response: response.data });
+    console.log("RESPONSE DATA BELOW!!!!");
+    console.log(responseData.data);
+    console.log(responseData.data[0].id);
+    const id = responseData.data[0].id;
+
+    const responseImg = await axios({
+      method: "GET",
+      url: `https://watch-database1.p.rapidapi.com/watch-media-links-by-id/${id}`,
+      headers: {
+        "X-RapidAPI-Key": "bf9fdb77dcmshd6868a03eb6d050p1b91d0jsn5b18fc60f300",
+        "X-RapidAPI-Host": "watch-database1.p.rapidapi.com",
+      },
+    });
+    console.log(responseImg);
+    console.log(responseImg.data[0]);
+    const url = responseImg.data[0];
+    console.log(url);
+
+    res.render("watch-details", { watch: responseData.data, image: url });
+
+    // res.render("watch-details", {
+    //   watch: responseData.data,
+    // });
+
+    // console.log("getting watch image");
+    // console.log("IMAGE DATA:", responseImg.data[0]);
+    // res.render("watch-details", { image: responseImg.data[0] });
   } catch (error) {
     console.error(error);
     res.send("An error occurred while retrieving the data");
   }
 });
+
+// get images
+// router.get("/models/:family/:model", async (req, res) => {
+//   const id = req.query.id;
+//   console.log("*****IDENTIFCATION BELOW!!!*****");
+//   console.log(id);
+//   try {
+//     const response = await axios({
+//       method: "GET",
+//       url: `https://watch-database1.p.rapidapi.com/watch-media-links-by-id/${id}`,
+//       headers: {
+//         "X-RapidAPI-Key": "bf9fdb77dcmshd6868a03eb6d050p1b91d0jsn5b18fc60f300",
+//         "X-RapidAPI-Host": "watch-database1.p.rapidapi.com",
+//       },
+//     });
+//     console.log("getting watch image");
+//     console.log("IMAGE DATA:", response.data[0]);
+//     res.render("watch-details", { image: response.data[0], watch: null });
+//   } catch (err) {
+//     console.log(err);
+//     res.send("An error occurred while retrieving the data");
+//   }
+// });
 
 module.exports = router;

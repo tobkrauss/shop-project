@@ -70,7 +70,7 @@ router.post("/auth/login", (req, res, next) => {
         req.session.user = userFromDB
         res.redirect("/profile")
       } else {
-        res.render("login", { message: "Wrong credentials" })
+        res.render("login", { message: "Wrong password. Please try again" })
         return
       }
     })

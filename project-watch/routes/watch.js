@@ -109,11 +109,31 @@ Watch.insertMany(arr)
 // console.log("HELLO FROM SEEDS!");
 
 // Find all watches
-router.get("/", async (req, res) => {
+router.get("/watches", async (req, res) => {
   const allWatches = await Watch.find();
   console.log(allWatches);
   // res.send("fetchin all watches!");
   res.render("index", { allWatches });
 });
 
+// Get specific watch
+router.get("/watches/:id", async (req, res) => {
+  const watchID = req.params.id;
+  const watch = await Watch.findById(watchID);
+  console.log(watch);
+  // res.send("fething watchs!");
+  res.render("watch-details", watch);
+});
+
 module.exports = router;
+
+//render celeb detail page
+// router.get("/celebs/:id", (req, res, next) => {
+//   const celebId = req.params.id;
+//   Celeb.findById(celebId)
+//     .then((celebsFromDB) => {
+//       console.log(celebsFromDB);
+//       res.render("celebs/detail", { celeb: celebsFromDB });
+//     })
+//     .catch((err) => next(err));
+// });

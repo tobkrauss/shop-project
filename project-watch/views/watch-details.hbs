@@ -1,9 +1,19 @@
-<h1>specific watch goes here!!!</h1>
+<div class="watch-title">
+  <h1>{{this.brand}} {{this.model}}</h1>
+  <h2>{{this.description}}</h2>
+</div>
 
-{{#each watch}}
-  <h1> {{this.watchName}}</h1>
-  <h2> {{this.id}} </h2>
-  {{!-- <img src="{{url}}" alt="" /> --}}
-  {{!-- <h3>{{../image}}</h3> --}}
-  <img src="{{../image}}" alt="">
-{{/each}}
+<div class="watch-container">
+  <div class="watch-image">
+    <img src={{this.image}} alt="" />
+  </div>
+  <div class="watch-text">
+    <h2>Case</h2>
+    <p>{{this.caseMaterial}}</p>
+    <h2>Band</h2>
+    <p>{{this.bandMaterial}}</p>
+    <h2>Price</h2>
+    <p>${{this.price}}</p>
+    <button>Add to cart</button>
+  </div>
+</div>

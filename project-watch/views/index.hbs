@@ -24,10 +24,18 @@
         <button type="submit" class="home-btn">Search</button>
       </form>
     </section>
-    {{#each families}}
+    {{#each allWatches}}
 
-      <a href="/models?family={{this.familyName}}"><h1>
-          {{this.familyName}}</h1></a>
+      <div class="watch-grid">
+        <div class="watch-card">
+          <h1 class="watch-brand">{{this.brand}}</h1>
+          <h2 class="watch-model">{{this.model}}</h2>
+          <p class="watch-description">{{this.description}}</p>
+          <img class="watch-hero" src={{this.image}} alt="" />
+        </div>
+        <br />
+        <br />
+      </div>
 
     {{/each}}
 

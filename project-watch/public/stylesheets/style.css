@@ -22,9 +22,9 @@ body {
 }
 
 .login-form input {
-height: 40px;
-width: 240px;
-margin: 10px auto;
+  height: 40px;
+  width: 240px;
+  margin: 10px auto;
 }
 
 .login-form button {
@@ -46,7 +46,7 @@ margin: 10px auto;
   justify-content: right;
 }
 
-.navbar-left{
+.navbar-left {
   background-color: black;
   height: 100px;
   display: flex;
@@ -85,7 +85,7 @@ margin: 10px auto;
 }
 
 .footer-background {
-  background-color:black;
+  background-color: black;
   color: #bf8970;
 }
 
@@ -121,7 +121,6 @@ margin: 10px auto;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
 }
 
 .search-form {
@@ -148,3 +147,50 @@ margin: 10px auto;
   color: black;
   border-radius: 5px;
 }
+
+/* .watch-grid {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+} */
+
+.watch-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.watch-brand {
+  font-size: 24px;
+}
+
+.watch-model {
+  font-size: 20px;
+}
+
+.watch-hero {
+  width: 200px;
+}
+
+/* .models-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+  list-style-type: none;
+  padding: 0;
+}
+
+.model {
+  flex-basis: calc(33.33% - 10px);
+  margin-bottom: 20px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+} */

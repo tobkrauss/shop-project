@@ -1,0 +1,52 @@
+{
+  "watches": [
+    {
+      "brand": "Rolex",
+      "model": "Daytona",
+      "caseMaterial": "18kt yellow gold",
+      "bandMaterial": "Oysterflex",
+      "price": "$30,000",
+      "water_resistance": "100 meters"
+    },
+    {
+      "brand": "Patek Philippe",
+      "model": "Nautilus",
+      "caseMaterial": "18kt white gold",
+      "bandMaterial": "leather",
+      "price": "$80,000",
+      "water_resistance": "60 meters"
+    },
+    {
+      "brand": "Audemars Piguet",
+      "model": "Royal Oak",
+      "caseMaterial": "18kt rose gold",
+      "bandMaterial": "steel",
+      "price": "$50,000",
+      "water_resistance": "50 meters"
+    },
+    {
+      "brand": "IWC",
+      "model": "Portuguese",
+      "caseMaterial": "18kt red gold",
+      "bandMaterial": "leather",
+      "price": "$25,000",
+      "water_resistance": "30 meters"
+    },
+    {
+      "brand": "Jaeger-LeCoultre",
+      "model": "Master Ultra Thin",
+      "caseMaterial": "18kt white gold",
+      "bandMaterial": "leather",
+      "price": "$18,000",
+      "water_resistance": "50 meters"
+    },
+    {
+      "brand": "Breguet",
+      "model": "Classique",
+      "caseMaterial": "18kt yellow gold",
+      "bandMaterial": "leather",
+      "price": "$35,000",
+      "water_resistance": "30 meters"
+    }
+  ]
+}

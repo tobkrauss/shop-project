@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -148,12 +154,12 @@ body {
   border-radius: 5px;
 }
 
-/* .watch-grid {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-} */
+.watch-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 100px;
+  row-gap: 50px;
+}
 
 .watch-card {
   display: flex;
@@ -163,7 +169,19 @@ body {
 }
 
 .watch-brand {
-  font-size: 24px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-family: Helvetica;
+  font-weight: 200;
+}
+
+.watch-description {
+  font-size: 14px;
+  margin-bottom: 10px;
+  /* text-transform: uppercase; */
+  font-family: Helvetica;
+  font-weight: 200;
 }
 
 .watch-model {
@@ -172,6 +190,27 @@ body {
 
 .watch-hero {
   width: 200px;
+  margin-bottom: 50px;
+}
+
+.watch-title {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.watch-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px;
+}
+
+img {
+  transition: transform 0.2s ease-in-out;
+}
+
+img:hover {
+  transform: scale(1.2);
 }
 
 /* .models-grid {

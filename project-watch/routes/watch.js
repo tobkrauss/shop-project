@@ -1,30 +1,27 @@
 const router = require("express").Router();
 const Review = require("../models/Review.model");
 const axios = require("axios");
+const Watch = require("../models/Watch.model");
 
-// router.get("/watch/:id", (req, res, next) => {
-//   res.render("watch-details");
+// creating a new watch
+// const watch = new Watch({
+//   brand: "Rolex",
+//   model: "Daytona",
+//   caseMaterial: "18kt yellow gold",
+//   bandMaterial: "Oysterflex",
+//   price: 30000,
 // });
 
-// get images
-// router.get("/images", async (req, res) => {
-//   try {
-//     const response = await axios({
-//       method: "GET",
-//       url: "https://watch-database1.p.rapidapi.com/watch-media-links-by-id/91894",
-//       headers: {
-//         "X-RapidAPI-Key": "322cdd67b9msh825ad01241d6cccp1e397fjsnd3220b54691f",
-//         "X-RapidAPI-Host": "watch-database1.p.rapidapi.com",
-//       },
-//     });
-//     console.log("getting watch image");
-//     console.log("IMAGE DATA:", response.data[0]);
-//     res.render("index", { images: response.data[0], families: null });
-//   } catch (err) {
-//     console.log(err);
-//     res.send("An error occurred while retrieving the data");
-//   }
-// });
+// watch
+//   .save()
+//   .then((data) => {
+//     console.log("HOORAY YOU HAVE A NEW WATCH");
+//     console.log(data);
+//   })
+//   .catch((e) => {
+//     console.log("OH NO WATCH ERRORSS");
+//     console.log(e);
+//   });
 
 // get all family by brand name
 router.get("/", async (req, res) => {
@@ -100,42 +97,97 @@ router.get("/models/:family/:model", async (req, res) => {
     const url = responseImg.data[0];
     console.log(url);
 
-    res.render("watch-details", { watch: responseData.data, image: url });
+const arr = [
+  {
+    brand: "Rolex",
+    model: "Daytona",
+    description: "Classic sports",
+    caseMaterial: "18kt yellow gold",
+    bandMaterial: "Oysterflex",
+    price: 30000,
+    water_resistance: "100 meters",
+    image:
+      "https://www.rueschenbeck.de/media/catalog/product/cache/1/image/2500x/040ec09b1e35df139433887a97daa66f/m/1/m116500ln-0002__1-modelpage_front_facing_landscape.png",
+  },
+  {
+    brand: "Patek Philippe",
+    model: "Nautilus",
+    description: "Elegant diver",
+    caseMaterial: "18kt white gold",
+    bandMaterial: "leather",
+    price: 80000,
+    water_resistance: "60 meters",
+    image:
+      "https://www.rueschenbeck.de/media/catalog/product/cache/1/small_image/500x/9df78eab33525d08d6e5fb8d27136e95/5/7/5712-1A-001__0-Soldat.jpg",
+  },
+  {
+    brand: "Audemars Piguet",
+    model: "Royal Oak",
+    description: "Iconic luxury",
+    caseMaterial: "18kt rose gold",
+    bandMaterial: "steel",
+    price: 50000,
+    water_resistance: "50 meters",
+    image:
+      "https://chronexttime.imgix.net/V/0/V00200713/V00200713_1.jpg?w=570&ar=1:1&auto=format&fm=jpg&q=55&usm=50&usmrad=1.5&dpr=1&trim=color&fit=fill&auto=compress&bg=FFFFFF",
+  },
+  {
+    brand: "IWC",
+    model: "Portuguese",
+    description: "Refined dress",
+    caseMaterial: "18kt red gold",
+    bandMaterial: "leather",
+    price: 25000,
+    water_resistance: "30 meters",
+    image: "https://www.iwc.com/content/dam/rcq/iwc/19/79/91/9/1979919.png",
+  },
+  {
+    brand: "Jaeger-LeCoultre",
+    model: "Master Ultra Thin",
+    description: "Sophisticated simplicity",
+    caseMaterial: "18kt white gold",
+    bandMaterial: "leather",
+    price: 18000,
+    water_resistance: "50 meters",
+    image:
+      "https://cdn2.chrono24.com/images/uhren/images_70/s3/11590370_xxl_v1562095443340.jpg",
+  },
+  {
+    brand: "Breguet",
+    model: "Classique",
+    description: "Timeless elegance",
+    caseMaterial: "18kt yellow gold",
+    bandMaterial: "leather",
+    price: 35000,
+    water_resistance: "30 meters",
+    image:
+      "https://www.breguet.com/sites/default/files/styles/page_collection_retina/public/gardetemps/variante/soldat/7137BBY59VU.jpg?itok=fpruljWj",
+  },
+];
 
-    // res.render("watch-details", {
-    //   watch: responseData.data,
-    // });
+//create many watches
 
-    // console.log("getting watch image");
-    // console.log("IMAGE DATA:", responseImg.data[0]);
-    // res.render("watch-details", { image: responseImg.data[0] });
-  } catch (error) {
-    console.error(error);
-    res.send("An error occurred while retrieving the data");
-  }
+// Delete all
+Watch.deleteMany()
+  .then(() => {
+    console.log("WATCHES DELETED!");
+  })
+  .catch((err) => console.log(err));
+
+// Insert the documents using insertMany()
+Watch.insertMany(arr)
+  .then(() => {
+    console.log("WATCHES SEEDED SUCCESS");
+  })
+  .catch((err) => console.log(err));
+// console.log("HELLO FROM SEEDS!");
+
+// Find all watches
+router.get("/", async (req, res) => {
+  const allWatches = await Watch.find();
+  console.log(allWatches);
+  // res.send("fetchin all watches!");
+  res.render("index", { allWatches });
 });
-
-// get images
-// router.get("/models/:family/:model", async (req, res) => {
-//   const id = req.query.id;
-//   console.log("*****IDENTIFCATION BELOW!!!*****");
-//   console.log(id);
-//   try {
-//     const response = await axios({
-//       method: "GET",
-//       url: `https://watch-database1.p.rapidapi.com/watch-media-links-by-id/${id}`,
-//       headers: {
-//         "X-RapidAPI-Key": "bf9fdb77dcmshd6868a03eb6d050p1b91d0jsn5b18fc60f300",
-//         "X-RapidAPI-Host": "watch-database1.p.rapidapi.com",
-//       },
-//     });
-//     console.log("getting watch image");
-//     console.log("IMAGE DATA:", response.data[0]);
-//     res.render("watch-details", { image: response.data[0], watch: null });
-//   } catch (err) {
-//     console.log(err);
-//     res.send("An error occurred while retrieving the data");
-//   }
-// });
 
 module.exports = router;

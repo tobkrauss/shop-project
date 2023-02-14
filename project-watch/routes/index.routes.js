@@ -1,4 +1,5 @@
 const express = require("express");
+const { isLoggedin } = require("../middleware/route-guard");
 const router = express.Router();
 
 /* GET home page */
@@ -6,7 +7,7 @@ const router = express.Router();
 //   res.render("index");
 // });
 
-router.get("/profile", (req, res, next) => {
+router.get("/profile", isLoggedin, (req, res, next) => {
   res.render("profile");
 });
 

@@ -33,7 +33,7 @@ router.get("/", async (req, res) => {
       method: "GET",
       url: "https://watch-database1.p.rapidapi.com/all-family-by/brandname/Rolex",
       headers: {
-        "X-RapidAPI-Key": "bf9fdb77dcmshd6868a03eb6d050p1b91d0jsn5b18fc60f300",
+        "X-RapidAPI-Key": "84609c3e3cmsh9e8bf88dc9f07c4p13d3c4jsnd5f87bc53621",
         "X-RapidAPI-Host": "watch-database1.p.rapidapi.com",
       },
     });
@@ -78,7 +78,7 @@ router.get("/models/:family/:model", async (req, res) => {
       method: "GET",
       url: `https://watch-database1.p.rapidapi.com/all-watches-by/brandname/Rolex/family/${family}/model/${model}`,
       headers: {
-        "X-RapidAPI-Key": "bf9fdb77dcmshd6868a03eb6d050p1b91d0jsn5b18fc60f300",
+        "X-RapidAPI-Key": "84609c3e3cmsh9e8bf88dc9f07c4p13d3c4jsnd5f87bc53621",
         "X-RapidAPI-Host": "watch-database1.p.rapidapi.com",
       },
     });
@@ -91,7 +91,7 @@ router.get("/models/:family/:model", async (req, res) => {
       method: "GET",
       url: `https://watch-database1.p.rapidapi.com/watch-media-links-by-id/${id}`,
       headers: {
-        "X-RapidAPI-Key": "bf9fdb77dcmshd6868a03eb6d050p1b91d0jsn5b18fc60f300",
+        "X-RapidAPI-Key": "84609c3e3cmsh9e8bf88dc9f07c4p13d3c4jsnd5f87bc53621",
         "X-RapidAPI-Host": "watch-database1.p.rapidapi.com",
       },
     });

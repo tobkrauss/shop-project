@@ -21,7 +21,11 @@ router.post('/create-checkout-session', async (req, res) => {
         const storeItem = storeItems.get(item.id)
         return {
           price_data: {
-            currency: "EUR"
+            currency: "EUR",
+            product_data: {
+              name: storeItem.name
+            },
+            unit_amount: storeItem.priceInCents
           },
           quantity: item.quantity
         }

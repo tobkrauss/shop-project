@@ -1,4 +1,5 @@
-
+const express = require("express");
+const router = express.Router();
 
 const button = document.getElementById("checkout-button")
 button.addEventListener("click", () => {
@@ -21,4 +22,4 @@ button.addEventListener("click", () => {
 }). catch(err => next(err))
 })
 
-
+module.exports = router;

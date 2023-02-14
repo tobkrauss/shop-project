@@ -51,6 +51,9 @@ app.use("/", authRoutes);
 const watchRoutes = require("./routes/watch");
 app.use("/", watchRoutes);
 
+const checkoutRoutes = require("./routes/checkout");
+app.use("/", checkoutRoutes);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 

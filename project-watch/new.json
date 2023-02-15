@@ -1,0 +1,234 @@
+{
+  "collection": "Luxury Watches",
+  "watches": [
+    {
+      "brand": "Rolex",
+      "model": "Daytona",
+      "price": 29000,
+      "caseMaterial": "18 ct gold",
+      "bandMaterial": "Oysterflex",
+      "waterResistance": 100,
+      "movement": "Perpetual, mechanical, self-winding",
+      "features": ["Chronograph", "Cerachrom bezel", "Triplock winding crown"],
+      "imageUrl": "https://example.com/rolex-daytona.jpg",
+      "description": "The Rolex Daytona is a classic sports watch that has been a favorite of collectors for decades. Its iconic design and reliable mechanical movement make it a must-have for any watch enthusiast."
+    },
+    {
+      "brand": "Patek Philippe",
+      "model": "Nautilus",
+      "price": 70000,
+      "caseMaterial": "18 ct rose gold",
+      "bandMaterial": "Leather",
+      "waterResistance": 120,
+      "movement": "Caliber 324 SC, automatic",
+      "features": ["Date", "Sweep seconds hand", "Fold-over clasp"],
+      "imageUrl": "https://example.com/patek-philippe-nautilus.jpg",
+      "description": "The Patek Philippe Nautilus is a true icon of luxury watchmaking. Its distinctive octagonal case and elegant design have made it one of the most sought-after watches in the world."
+    },
+    {
+      "brand": "Audemars Piguet",
+      "model": "Royal Oak",
+      "price": 55000,
+      "caseMaterial": "18 ct pink gold",
+      "bandMaterial": "Bracelet",
+      "waterResistance": 50,
+      "movement": "Selfwinding Manufacture Calibre 3120",
+      "features": ["Date", "Sapphire crystal", "Octagonal bezel"],
+      "imageUrl": "https://example.com/audemars-piguet-royal-oak.jpg",
+      "description": "The Audemars Piguet Royal Oak is one of the most iconic luxury watches ever made. Its innovative design and high-quality materials make it a favorite of watch collectors around the world."
+    },
+    {
+      "brand": "Cartier",
+      "model": "Tank",
+      "price": 25000,
+      "caseMaterial": "18 ct pink gold",
+      "bandMaterial": "Alligator leather",
+      "waterResistance": 30,
+      "movement": "Calibre 1847 MC, automatic",
+      "features": [
+        "Roman numeral hour markers",
+        "Sapphire crystal",
+        "Crown set with a synthetic blue spinel"
+      ],
+      "imageUrl": "https://example.com/cartier-tank.jpg",
+      "description": "The Cartier Tank is a classic dress watch that has been popular for over a century. Its rectangular case and elegant design make it a timeless piece that is perfect for any occasion."
+    },
+    {
+      "brand": "IWC",
+      "model": "Portugieser",
+      "price": 12000,
+      "caseMaterial": "Stainless steel",
+      "bandMaterial": "Alligator leather",
+      "waterResistance": 30,
+      "movement": "Calibre 82200, automatic",
+      "features": [
+        "Arabic numeral hour markers",
+        "Sapphire crystal",
+        "Power reserve display"
+      ],
+      "imageUrl": "https://example.com/iwc-portugieser.jpg",
+      "description": "The IWC Portugieser is a classic dress watch"
+    },
+
+    {
+      "brand": "Jaeger-LeCoultre",
+      "model": "Reverso Classic Small Duetto",
+      "price": 10800,
+      "caseMaterial": "Stainless steel",
+      "bandMaterial": "Alligator leather",
+      "waterResistance": 30,
+      "movement": "Calibre 844, manual",
+      "features": ["Small seconds", "Double-sided dial", "Sapphire crystal"],
+      "imageUrl": "https://example.com/jaeger-lecoultre-reverso.jpg",
+      "description": "The Jaeger-LeCoultre Reverso is a classic Art Deco-style watch that features a unique reversible case. The small Duetto model has two dials, one on each side of the case, making it a versatile choice for any occasion."
+    },
+    {
+      "brand": "Omega",
+      "model": "Seamaster Aqua Terra",
+      "price": 5000,
+      "caseMaterial": "Stainless steel",
+      "bandMaterial": "Stainless steel",
+      "waterResistance": 150,
+      "movement": "Co-Axial Master Chronometer 8900, automatic",
+      "features": ["Date", "Screw-in crown", "Anti-magnetic"],
+      "imageUrl": "https://example.com/omega-seamaster.jpg",
+      "description": "The Omega Seamaster Aqua Terra is a versatile and reliable watch that is equally at home in the office or out on the water. Its anti-magnetic properties make it a favorite of scientists and engineers."
+    },
+    {
+      "brand": "Hublot",
+      "model": "Big Bang Unico",
+      "price": 25000,
+      "caseMaterial": "Sapphire crystal",
+      "bandMaterial": "Rubber",
+      "waterResistance": 100,
+      "movement": "HUB1242, automatic",
+      "features": ["Chronograph", "Skeleton dial", "Power reserve indicator"],
+      "imageUrl": "https://example.com/hublot-big-bang.jpg",
+      "description": "The Hublot Big Bang Unico is a bold and innovative watch that features a case made entirely of sapphire crystal. Its skeleton dial and chronograph functions make it a favorite of watch enthusiasts and collectors."
+    },
+    {
+      "brand": "Vacheron Constantin",
+      "model": "Overseas Dual Time",
+      "price": 28500,
+      "caseMaterial": "Stainless steel",
+      "bandMaterial": "Rubber",
+      "waterResistance": 150,
+      "movement": "Calibre 5110 DT, automatic",
+      "features": ["Dual time zone", "Date", "Power reserve indicator"],
+      "imageUrl": "https://example.com/vacheron-constantin-overseas.jpg",
+      "description": "The Vacheron Constantin Overseas Dual Time is a luxurious and versatile watch that is perfect for the frequent traveler. Its dual time zone function and robust construction make it a favorite of watch enthusiasts and collectors alike."
+    },
+    {
+      "brand": "IWC",
+      "model": "Portofino Hand-Wound Moon Phase",
+      "price": 12800,
+      "caseMaterial": "18K red gold",
+      "bandMaterial": "Alligator leather",
+      "waterResistance": 30,
+      "movement": "Caliber 59800, manual",
+      "features": [
+        "Moon phase display",
+        "Small seconds",
+        "Power reserve of 8 days"
+      ],
+      "imageUrl": "https://example.com/iwc-portofino.jpg",
+      "description": "The IWC Portofino Hand-Wound Moon Phase is a luxurious and elegant dress watch that features a moon phase display and an impressive 8-day power reserve. Its refined design is inspired by the timeless beauty of the Italian Riviera."
+    },
+    {
+      "brand": "Audemars Piguet",
+      "model": "Royal Oak Offshore",
+      "price": 39500,
+      "caseMaterial": "18K pink gold",
+      "bandMaterial": "Rubber",
+      "waterResistance": 100,
+      "movement": "Caliber 3126/3840, automatic",
+      "features": ["Chronograph", "Date", "Sapphire crystal"],
+      "imageUrl": "https://example.com/audemars-piguet-royal-oak-offshore.jpg",
+      "description": "The Audemars Piguet Royal Oak Offshore is a bold and masculine watch that is perfect for the discerning collector who appreciates the finer things in life. Its distinctive octagonal case and integrated bracelet have become symbols of luxury and elegance."
+    },
+    {
+      "brand": "Jaeger-LeCoultre",
+      "model": "Master Ultra Thin Moon",
+      "price": 12600,
+      "caseMaterial": "Stainless steel",
+      "bandMaterial": "Alligator leather",
+      "waterResistance": 50,
+      "movement": "Caliber 925, automatic",
+      "features": ["Moon phase display", "Small seconds", "Date"],
+      "imageUrl": "https://example.com/jaeger-lecoultre-master-ultra-thin-moon.jpg",
+      "description": "The Jaeger-LeCoultre Master Ultra Thin Moon is a refined and sophisticated watch that features a beautifully designed moon phase display. Its thin and elegant case is a testament to the brand's expertise in watchmaking."
+    },
+    {
+      "brand": "Zenith",
+      "model": "Chronomaster Sport",
+      "price": 9900,
+      "caseMaterial": "Stainless steel",
+      "bandMaterial": "Rubber",
+      "waterResistance": 100,
+      "movement": "Caliber El Primero 3600, automatic",
+      "features": ["Chronograph", "Date", "Tachymeter scale"],
+      "imageUrl": "https://example.com/zenith-chronomaster-sport.jpg",
+      "description": "The Zenith Chronomaster Sport is a versatile and sporty watch that combines style and performance. Its high-precision movement and chronograph function make it the perfect watch for the modern adventurer."
+    },
+    {
+      "brand": "Breguet",
+      "model": "Classique 5177",
+      "price": 21900,
+      "caseMaterial": "18K rose gold",
+      "bandMaterial": "Alligator leather",
+      "waterResistance": 30,
+      "movement": "Caliber 777Q, automatic",
+      "features": ["Power reserve of 55 hours", "Small seconds"],
+      "imageUrl": "https://example.com/breguet-classique-5177.jpg",
+      "description": "The Breguet Classique 5177 is a classic and elegant watch that features the brand's signature guilloché dial and Breguet hands. Its refined design is a tribute to the brand's long-standing heritage in watchmaking."
+    },
+    {
+      "brand": "Chopard",
+      "model": "L.U.C XP",
+      "price": 17800,
+      "caseMaterial": "18K rose gold",
+      "bandMaterial": "Alligator leather",
+      "waterResistance": 30,
+      "movement": "Caliber L.U.C 96.53-L, automatic",
+      "features": ["Power reserve of 58 hours", "Date"],
+      "imageUrl": "https://example.com/chopard-luc-xp.jpg",
+      "description": "The Chopard L.U.C XP is a sleek and sophisticated watch that features a beautifully designed dial with a date window at 6 o'clock. Its slim and elegant case is a testament to the brand's expertise in watchmaking."
+    },
+    {
+      "brand": "Audemars Piguet",
+      "model": "Royal Oak Chronograph",
+      "price": 25400,
+      "caseMaterial": "Stainless steel",
+      "bandMaterial": "Stainless steel",
+      "waterResistance": 50,
+      "movement": "Caliber 2385, automatic",
+      "features": ["Chronograph", "Date"],
+      "imageUrl": "https://example.com/audemars-piguet-royal-oak-chronograph.jpg",
+      "description": "The Audemars Piguet Royal Oak Chronograph is a classic and iconic watch that features the brand's signature octagonal bezel and 'Grande Tapisserie' dial. Its high-precision movement and chronograph function make it the perfect watch for the modern gentleman."
+    },
+    {
+      "brand": "IWC Schaffhausen",
+      "model": "Portugieser Chronograph",
+      "price": 7800,
+      "caseMaterial": "Stainless steel",
+      "bandMaterial": "Alligator leather",
+      "waterResistance": 30,
+      "movement": "Caliber 79350, automatic",
+      "features": ["Chronograph", "Date"],
+      "imageUrl": "https://example.com/iwc-schaffhausen-portugieser-chronograph.jpg",
+      "description": "The IWC Schaffhausen Portugieser Chronograph is a classic and elegant watch that features a beautifully designed dial with a chronograph function and a date window at 3 o'clock. Its refined design is a testament to the brand's long-standing heritage in watchmaking."
+    },
+    {
+      "brand": "Glashütte Original",
+      "model": "Senator Excellence Panorama Date Moon Phase",
+      "price": 13200,
+      "caseMaterial": "Stainless steel",
+      "bandMaterial": "Alligator leather",
+      "waterResistance": 50,
+      "movement": "Caliber 36-04, automatic",
+      "features": ["Moon phase display", "Panorama date"],
+      "imageUrl": "https://example.com/glashutte-original-senator-excellence-panorama-date-moon-phase.jpg",
+      "description": "The Glashütte Original Senator Excellence Panorama Date Moon Phase is a sophisticated and elegant watch that features a beautifully designed moon phase display and panorama date. Its refined design is a tribute to the brand's long-standing heritage in watchmaking."
+    }
+  ]
+}

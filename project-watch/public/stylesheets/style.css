@@ -189,7 +189,7 @@ body {
 }
 
 .watch-hero {
-  width: 200px;
+  width: 100px;
   margin-bottom: 50px;
 }
 
@@ -211,6 +211,10 @@ img {
 
 img:hover {
   transform: scale(1.2);
+}
+
+.watch-image {
+  width: 500px;
 }
 
 /* .models-grid {

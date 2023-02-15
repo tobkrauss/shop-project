@@ -11,7 +11,7 @@ const watchSchema = new Schema({
     type: String,
     required: true,
   },
-  description: {
+  price: {
     type: String,
     required: true,
   },
@@ -23,12 +23,25 @@ const watchSchema = new Schema({
     type: String,
     required: true,
   },
-  price: {
-    type: Number,
+  waterResistance: {
+    type: String,
     required: true,
   },
-  image: {
+  movement: {
     type: String,
+    required: true,
+  },
+  features: {
+    type: Array,
+    required: true,
+  },
+  imageUrl: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
   },
 });
 

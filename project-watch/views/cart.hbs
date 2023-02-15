@@ -1,15 +1,9 @@
 <h1>shopping cart here</h1>
 
-{{#each products}}
-
-  <h2> {{this}} </h2>
-
-{{/each}}
-
-{{#each price}}
-
-  <h2> {{this}} </h2>
-
-{{/each}}
+<ul>
+  {{#each productPrices}}
+    <li>{{@key}} - ${{this}} <button>remove</button> </li>
+  {{/each}}
+</ul>
 
 <p>this is the updateded version 10:31am</p>

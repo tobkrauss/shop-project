@@ -349,13 +349,6 @@ router.post("/cart/add", async (req, res) => {
   console.log("this is the id from the request body!");
   console.log(id);
   const watch = await Watch.findById(id);
-  console.log(watch.brand, watch.model, watch.price);
-  // const cart = await Cart.findOneAndUpdate(
-  //   {}, // specify the cart you want to update
-  //   { $push: [{ products: id }] }, // use the $push operator to add the new product to the products array
-  //   { new: true } // set the new option to true to return the updated document
-  // );
-
   const cart = await Cart.findOneAndUpdate(
     {},
     {
@@ -387,19 +380,18 @@ router.get("/cart", async (req, res) => {
   if (cartID) {
     // find the cart for the current user
     const cart = await Cart.findOne({ _id: cartID });
-    products = cart.products;
-    price = cart.price;
-    // quantity = cart.quantity;
+    const products = cart.products;
+    const prices = cart.price;
+    let productPrices = {};
+    for (let i = 0; i < prices.length; i++) {
+      productPrices[products[i]] = prices[i];
+    }
+    console.log(productPrices);
+
+    res.render("cart", {
+      productPrices,
+    });
   }
-
-  console.log("PRODUCTS:", products);
-  console.log("PRICE", price);
-
-  res.render("cart", {
-    products,
-    price,
-    // quantity,
-  });
 });
 
 module.exports = router;

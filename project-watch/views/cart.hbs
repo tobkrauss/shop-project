@@ -5,14 +5,20 @@
       <li class="shopping-item">{{@key}}
         - ${{this}}
 
+        {{! YOU ARE NOT PASSING THE ID YET!!! }}
         <form action="/cart/remove" method="POST">
           <input type="hidden" name="watchID" value="{{this._id}}" />
           <button type="submit">Remove from cart</button>
         </form>
 
       </li>
+
     {{/each}}
   </ul>
 </div>
+
+{{#each id}}
+  {{this}}
+{{/each}}
 
 <p>this is the updateded version 10:31am</p>

@@ -373,6 +373,7 @@ router.post("/cart/add", async (req, res) => {
       $push: {
         products: `${watch.brand} ${watch.model}`,
         price: `${watch.price}`,
+        id: ` ${watch._id}`,
       },
     },
     { upsert: true, new: true }
@@ -389,24 +390,29 @@ router.post("/cart/add", async (req, res) => {
 
 // remove from cart
 router.post("/cart/remove", async (req, res) => {
+  console.log("THIS IS THE REQUEST BODY");
+  console.log(req.body);
   const id = req.body.watchID;
-  const cartID = req.session.cartID;
-  const watch = await Watch.findById(id);
+  console.log("THIS IS THE WATCH ID!!!");
+  console.log(id);
+  console.log("HELLO FROM THE REMOVE ENDPOINT!");
+  // const cartID = req.session.cartID;
+  // const watch = await Watch.findById(id);
 
-  const cart = await Cart.findOneAndUpdate(
-    { _id: cartID },
-    {
-      $pull: {
-        products: `${watch.brand} ${watch.model}`,
-        price: `${watch.price}`,
-      },
-    },
-    { new: true }
-  );
+  // const cart = await Cart.findOneAndUpdate(
+  //   { _id: cartID },
+  //   {
+  //     $pull: {
+  //       products: `${watch.brand} ${watch.model}`,
+  //       price: `${watch.price}`,
+  //     },
+  //   },
+  //   { new: true }
+  // );
 
   // set a success message in the session
-  req.session.successMessage = "Item removed from cart!";
-  res.redirect("/cart");
+  // req.session.successMessage = "Item removed from cart!";
+  // res.redirect("/cart");
 });
 
 router.get("/cart", async (req, res) => {
@@ -422,14 +428,19 @@ router.get("/cart", async (req, res) => {
     const cart = await Cart.findOne({ _id: cartID });
     const products = cart.products;
     const prices = cart.price;
+    const id = cart.id;
     let productPrices = {};
     for (let i = 0; i < prices.length; i++) {
       productPrices[products[i]] = prices[i];
     }
+    console.log("PRODUCTPRICES BELOW!!!");
     console.log(productPrices);
+    console.log("PRODUCT ID BELOW");
+    console.log(id);
 
     res.render("cart", {
       productPrices,
+      id,
     });
   }
 });

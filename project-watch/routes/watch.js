@@ -392,9 +392,9 @@ router.post("/cart/add", async (req, res) => {
 
 router.post("/watches/:id", (req, res, next) => {
   const watchID = req.params.id
-  const { title, description, rating } = req.body
+  const { username, description, rating } = req.body
 
-  Review.create({title, description, rating})
+  Review.create({username, description, rating})
   .then(createdReview => {
     Watch.findByIdAndUpdate(watchID, {$push: { reviews: createdReview._id} })
       .then(watch => {

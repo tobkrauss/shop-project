@@ -301,6 +301,11 @@ let arr = [
 //   })
 //   .catch((err) => console.log(err));
 
+// home redirect
+router.get("/", (req, res) => {
+  res.redirect("/watches");
+});
+
 // Find all watches
 router.get("/watches", async (req, res) => {
   const allWatches = await Watch.find();

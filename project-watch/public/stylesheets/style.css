@@ -184,6 +184,8 @@ body {
 .watch-title-text,
 .watch-movement {
   text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
 }
 
 .watch-movement {
@@ -191,11 +193,21 @@ body {
 }
 
 .watch-description {
-  font-size: 14px;
+  font-size: 16px;
   margin-bottom: 10px;
   /* text-transform: uppercase; */
   font-family: Helvetica;
   font-weight: 200;
+  margin-bottom: 20px;
+}
+
+.watch-row {
+  margin-bottom: 20px;
+}
+
+.watch-label {
+  text-transform: uppercase;
+  /* letter-spacing: 2px; */
 }
 
 .watch-material {

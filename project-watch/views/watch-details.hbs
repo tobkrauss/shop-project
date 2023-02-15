@@ -22,15 +22,22 @@
       </div>
       <div class="watch-text">
         <h2 class="watch-description">{{this.description}}</h2>
-        <h2>Case</h2>
-        <p class="watch-material">{{this.caseMaterial}}</p>
-        <h2>Band</h2>
-        <p class="watch-material">{{this.bandMaterial}}</p>
-        <h2>Features</h2>
-        <p class="watch-material">{{this.features}}</p>
-
-        <h2>Price</h2>
-        <p>${{this.price}}</p>
+        <div class="watch-row">
+          <h2 class="watch-label">Case</h2>
+          <p class="watch-material">{{this.caseMaterial}}</p>
+        </div>
+        <div class="watch-row">
+          <h2 class="watch-label">Band</h2>
+          <p class="watch-material">{{this.bandMaterial}}</p>
+        </div>
+        <div class="watch-row">
+          <h2 class="watch-label">Features</h2>
+          <p class="watch-material">{{this.features}}</p>
+        </div>
+        <div class="watch-row">
+          <h2 class="watch-label">Price</h2>
+          <p class="watch-material">${{this.price}}</p>
+        </div>
 
         <form action="/cart/add" method="POST">
           <input type="hidden" name="watchID" value="{{this._id}}" />

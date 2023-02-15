@@ -338,23 +338,23 @@ router.get("/watches/:id", async (req, res) => {
 router.get("/cart", async (req, res) => {
   const cartID = req.session.cartID;
   let products = [];
-  // let price = 0;
-  // let quantity = 0;
+  let price = 0;
+  let quantity = 0;
 
   if (cartID) {
     // find the cart for the current user
     const cart = await Cart.findOne({ _id: cartID });
     products = cart.products;
-    // price = cart.price;
-    // quantity = cart.quantity;
+    price = cart.price;
+    quantity = cart.quantity;
   }
 
   console.log(products);
 
   res.render("cart", {
     products,
-    // price,
-    // quantity,
+    price,
+    quantity,
   });
 });
 
@@ -363,13 +363,22 @@ router.post("/cart/add", async (req, res) => {
   const id = req.body.watchID;
   console.log("this is the id from the request body!");
   console.log(id);
+  const watch = await Watch.findById(id);
+  console.log("WATCH DATA BELOW");
+  console.log(watch);
+  console.log(watch.brand, watch.model, watch.price);
   const cart = await Cart.findOneAndUpdate(
     {},
-    { $push: { products: id } },
+    {
+      $push: {
+        products: `${watch.brand} ${watch.model}`,
+        price: `${watch.price}`,
+      },
+    },
     { upsert: true, new: true }
   );
-  console.log("SHOPPING CART BELOW!");
-  console.log(cart);
+  // console.log("SHOPPING CART BELOW!");
+  // console.log(cart);
   // store the cart ID in the session
   req.session.cartID = cart._id;
   // set a success message in the session

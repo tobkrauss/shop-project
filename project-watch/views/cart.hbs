@@ -1,27 +1,20 @@
-<div class="shopping-container">
-
+<!-- HTML code -->
+<div id="shopping-cart">
   {{#each products}}
     <div class="shopping-card">
       <img class="shopping-image" src={{this.imageUrl}} alt="" />
-      {{!-- <h1> {{this.imageUrl}} </h1> --}}
       <ul class="shopping-text">
-        <li class="shopping-name">{{this.brand}}
-          {{this.model}}
-        </li>
+        <li class="shopping-name">{{this.brand}} {{this.model}}</li>
         <li class="shopping-stock">In Stock</li>
         <form action="/cart/remove" method="POST">
           <input type="hidden" name="productID" value="{{this.id}}" />
           <button type="submit">Remove from cart</button>
         </form>
-
       </ul>
-      <li class="shopping-price">
-        USD
-        {{this.price}}
-      </li>
+      <li class="shopping-price">USD {{this.price}}</li>
     </div>
   {{/each}}
-
+  <div>Total: USD <span id="total-price"> {{total}} </span></div>
 </div>
 
 <p>this is the updateded version 10:31am</p>

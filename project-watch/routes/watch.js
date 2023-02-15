@@ -388,9 +388,20 @@ router.get("/cart", async (req, res) => {
     // find the cart for the current user
     const cart = await Cart.findOne({ _id: cartID });
     const products = cart.products;
-
+    console.log("THIS IS THE PRODUCT!!!!");
+    console.log(products);
+    const price = cart.products.price;
+    console.log("THIS IS THE PRICE!!!!!");
+    console.log(price);
+    let total = 0;
+    for (let i = 0; i < products.length; i++) {
+      total += parseInt(products[i].price);
+      console.log("THIS IS THE TOTAL!");
+      console.log(total);
+    }
     res.render("cart", {
       products,
+      total,
     });
   }
 });

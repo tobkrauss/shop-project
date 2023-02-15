@@ -1,15 +1,18 @@
-<h1>shopping cart here</h1>
+<div class="shopping-container">
+  <h1>Your Shopping Cart</h1>
+  <ul class="shopping-list">
+    {{#each productPrices}}
+      <li class="shopping-item">{{@key}}
+        - ${{this}}
 
-{{#each products}}
+        <form action="/cart/remove" method="POST">
+          <input type="hidden" name="watchID" value="{{this._id}}" />
+          <button type="submit">Remove from cart</button>
+        </form>
 
-  <h2> {{this}} </h2>
-
-{{/each}}
-
-{{#each price}}
-
-  <h2> {{this}} </h2>
-
-{{/each}}
+      </li>
+    {{/each}}
+  </ul>
+</div>
 
 <p>this is the updateded version 10:31am</p>

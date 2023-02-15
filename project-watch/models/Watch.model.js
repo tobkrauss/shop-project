@@ -43,6 +43,10 @@ const watchSchema = new Schema({
     type: String,
     required: true,
   },
+  shortDescription: {
+    type: String,
+    required: true,
+  },
 });
 
 // Defining model

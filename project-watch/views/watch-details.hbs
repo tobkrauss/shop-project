@@ -34,6 +34,34 @@
       <button type="submit">Add to Cart</button>
     </form>
 
+{{!-- // List the reviews --}}
+{{#if reviews}}
+{{#each reviews}}
+
+<div>
+    <h4>Title:{{this.title}}</4>
+    <p>Description: {{this.description}}</p>
+    <p>Rating: {{this.rating}}/5</p>
+</div>
+{{/each}}
+{{/if}}
+
+{{!-- Add Watch Review --}}
+<h2>Add review</h2>
+<form action="/watches/{{this._id}}" method="POST">
+<label for="user">Summary</label>
+<input type="text" name="title" placeholder="Your review in one word">
+
+<label for="text">Description (optional)</label>
+<input type="text" name="description" placeholder="Describe your experience with the watch">
+
+<label for="rating">Rating:</label>
+<input type="number" max="5" name="rating">
+
+<button type="submit">Add review</button>
+
+</form>
+
   </div>
 </div>
 <footer class="footer-background footer">

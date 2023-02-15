@@ -316,7 +316,8 @@ router.get("/watches", async (req, res) => {
 // Get specific watch
 router.get("/watches/:id", async (req, res) => {
   const watchID = req.params.id;
-  const watch = await Watch.findById(watchID);
+  const watch = await Watch.findById(watchID)
+  .populate("reviews")
   console.log(watch);
   // res.send("fething watchs!");
   res.render("watch-details", watch);
@@ -387,6 +388,22 @@ router.post("/cart/add", async (req, res) => {
   res.redirect("/cart");
   // res.send("adding to cart!");
 });
+
+router.post("/watches/:id", (req, res, next) => {
+  const { title, description, rating } = req.body
+const watchID = req.params.id
+
+  Review.create({title, description, rating})
+  .then(createdReview => {
+    console.log(createdReview)
+    res.redirect(`/watches/${watchID}`)
+  })
+   
+    Watch.findByIdAndUpdate(watchID, {
+      $push: { reviews: { title, description, rating } }
+    })
+  })
+
 
 module.exports = router;
 

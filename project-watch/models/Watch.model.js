@@ -49,6 +49,10 @@ const watchSchema = new Schema({
         ref: "Review"
     }
 ]
+  shortDescription: {
+    type: String,
+    required: true,
+  },
 });
 
 // Defining model

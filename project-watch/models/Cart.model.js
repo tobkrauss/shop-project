@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const cartSchema = new Schema({
   products: Array,
-  price: Number,
+  price: Array,
+  id: Array,
   image: String,
   quantity: Number,
 });

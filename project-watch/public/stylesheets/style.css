@@ -66,6 +66,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .nav-btn {
@@ -159,6 +160,22 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
   padding: 100px;
   row-gap: 50px;
+  column-gap: 100px;
+}
+
+.watch-index-title {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 50px;
+}
+
+.watch-index-description {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .watch-card {
@@ -173,10 +190,46 @@ body {
   margin-bottom: 10px;
   text-transform: uppercase;
   font-family: Helvetica;
-  font-weight: 200;
+  /* font-weight: 200; */
+  letter-spacing: 2px;
 }
 
-.watch-description {
+.watch-title {
+  margin-top: 50px;
+}
+
+.watch-details-title,
+.watch-details-movement {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.watch-movement {
+  font-size: 12px;
+}
+
+.watch-details-description {
+  font-size: 16px;
+  margin-bottom: 10px;
+  /* text-transform: uppercase; */
+  font-family: Helvetica;
+  font-weight: 200;
+  margin-bottom: 50px;
+}
+
+.watch-row {
+  margin-bottom: 50px;
+}
+
+.watch-label {
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  /* letter-spacing: 2px; */
+}
+
+.watch-details-material {
   font-size: 14px;
   margin-bottom: 10px;
   /* text-transform: uppercase; */
@@ -184,7 +237,26 @@ body {
   font-weight: 200;
 }
 
-.watch-model {
+.watch-details-button {
+  padding: 20px;
+  text-transform: uppercase;
+  background-color: black;
+  color: white;
+  border: none;
+}
+
+.watch-details-button:hover {
+  background-color: #bf8970; /* Change the background color on hover */
+  color: #000; /* Change the font color on hover */
+  cursor: pointer; /* Change the mouse cursor to a pointer */
+}
+
+.watch-details-button:active {
+  background-color: #bf8970; /* Change the background color on button press */
+  color: #000; /* Change the font color on button press */
+}
+
+.watch-details-model {
   font-size: 20px;
 }
 
@@ -193,13 +265,9 @@ body {
   margin-bottom: 50px;
 }
 
-.watch-title {
-  margin: 0 auto;
-  text-align: center;
-}
-
 .watch-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   justify-content: center;
   align-items: center;
   padding: 100px;
@@ -215,6 +283,25 @@ img:hover {
 
 .watch-image {
   width: 500px;
+}
+
+.shopping-container {
+  padding: 50px;
+}
+
+.shopping-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.shopping-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 24px;
 }
 
 /* .models-grid {

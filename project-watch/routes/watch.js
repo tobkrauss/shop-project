@@ -40,6 +40,7 @@ let arr = [
       "https://www.rueschenbeck.de/media/catalog/product/cache/1/image/2500x/040ec09b1e35df139433887a97daa66f/m/1/m116500ln-0002__1-modelpage_front_facing_landscape.png",
     description:
       "The Rolex Daytona is a classic sports watch that has been a favorite of collectors for decades. Its iconic design and reliable mechanical movement make it a must-have for any watch enthusiast.",
+    shortDescription: "Iconic chronograph",
   },
   {
     brand: "Patek Philippe",
@@ -54,6 +55,7 @@ let arr = [
       "https://www.rueschenbeck.de/media/catalog/product/cache/1/image/450x450/9df78eab33525d08d6e5fb8d27136e95/5/7/5712R-001__0-Soldat.jpg",
     description:
       "The Patek Philippe Nautilus is a true icon of luxury watchmaking. Its distinctive octagonal case and elegant design have made it one of the most sought-after watches in the world.",
+    shortDescription: "Luxury sports",
   },
   {
     brand: "Audemars Piguet",
@@ -67,6 +69,7 @@ let arr = [
     imageUrl: "https://cdn-products.chronext.com/V/5/V50416/V50416_1_det.png",
     description:
       "The Audemars Piguet Royal Oak is one of the most iconic luxury watches ever made. Its innovative design and high-quality materials make it a favorite of watch collectors around the world.",
+    shortDescription: "Innovative design",
   },
   {
     brand: "Cartier",
@@ -85,6 +88,7 @@ let arr = [
       "https://medias.collectorsquare.com/images/products/387685/00pp-montre-cartier-tank-francaise-en-acier-ref-2384-vers-2003.jpg",
     description:
       "The Cartier Tank is a classic dress watch that has been popular for over a century. Its rectangular case and elegant design make it a timeless piece that is perfect for any occasion.",
+    shortDescription: "Classic elegance",
   },
   {
     brand: "IWC",
@@ -102,6 +106,7 @@ let arr = [
     imageUrl:
       "https://www.rueschenbeck.de/media/catalog/product/cache/1/image/450x450/9df78eab33525d08d6e5fb8d27136e95/I/W/IW371606__0-Soldat.jpg",
     description: "The IWC Portugieser is a classic dress watch",
+    shortDescription: "Timeless dress",
   },
   {
     brand: "Jaeger-LeCoultre",
@@ -116,6 +121,7 @@ let arr = [
       "https://cdn2.chrono24.com/images/uhren/25338105-1n7vn6pr766jwmt3dltf8bjl-ExtraLarge.jpg",
     description:
       "The Jaeger-LeCoultre Reverso is a classic Art Deco-style watch that features a unique reversible case. The small Duetto model has two dials, one on each side of the case, making it a versatile choice for any occasion.",
+    shortDescription: "Unique reversible",
   },
   {
     brand: "Omega",
@@ -130,6 +136,7 @@ let arr = [
       "https://www.omegawatches.com/media/catalog/product/cache/a5c37fddc1a529a1a44fea55d527b9a116f3738da3a2cc38006fcc613c37c391/o/m/omega-seamaster-aqua-terra-150m-23110422103003-l.png",
     description:
       "The Omega Seamaster Aqua Terra is a versatile and reliable watch that is equally at home in the office or out on the water. Its anti-magnetic properties make it a favorite of scientists and engineers.",
+    shortDescription: "Sporty sophistication",
   },
   {
     brand: "Hublot",
@@ -144,6 +151,7 @@ let arr = [
       "https://www.hublot.com/sites/default/files/styles/watch_item_desktop_1x_scale_no_crop_600_6000_/public/2021-06/big-bang-unico-titanium-ceramic-44-mm-soldier-shot.png?itok=Iv1TMU94",
     description:
       "The Hublot Big Bang Unico is a bold and innovative watch that features a case made entirely of sapphire crystal. Its skeleton dial and chronograph functions make it a favorite of watch enthusiasts and collectors.",
+    shortDescription: "Innovative boldness",
   },
   {
     brand: "Vacheron Constantin",
@@ -158,6 +166,7 @@ let arr = [
       "https://www.vacheron-constantin.com/dam/rcq/vac/16/23/88/5/1623885.png.transform.vacproddetails.png",
     description:
       "The Vacheron Constantin Overseas Dual Time is a luxurious and versatile watch that is perfect for the frequent traveler. Its dual time zone function and robust construction make it a favorite of watch enthusiasts and collectors alike.",
+    shortDescription: "Luxurios versatility",
   },
   {
     brand: "IWC",
@@ -176,6 +185,7 @@ let arr = [
       "https://www.juwelier-vogl.de/cdn/2000x2000/1/e/0/e/1e0e2a54424d4e48ec04be080e95f37d1c6e87a3_IW516401_01_PROD_862_IWC_2000x2000_45mm.jpg",
     description:
       "The IWC Portofino Hand-Wound Moon Phase is a luxurious and elegant dress watch that features a moon phase display and an impressive 8-day power reserve. Its refined design is inspired by the timeless beauty of the Italian Riviera.",
+    shortDescription: "Elegant refinement",
   },
   {
     brand: "Audemars Piguet",
@@ -190,6 +200,7 @@ let arr = [
       "http://cdn.shopify.com/s/files/1/0550/6511/6752/products/IMG_2046.jpg?v=1667924450",
     description:
       "The Audemars Piguet Royal Oak Offshore is a bold and masculine watch that is perfect for the discerning collector who appreciates the finer things in life. Its distinctive octagonal case and integrated bracelet have become symbols of luxury and elegance.",
+    shortDescription: "Bold masculinity",
   },
   {
     brand: "Jaeger-LeCoultre",
@@ -204,6 +215,7 @@ let arr = [
       "https://img.jaeger-lecoultre.com/open-graph-squared-boxed-image-1/o-dpr-2/4fc048262e530e298d820b3a006bafbb9c315bad.jpg",
     description:
       "The Jaeger-LeCoultre Master Ultra Thin Moon is a refined and sophisticated watch that features a beautifully designed moon phase display. Its thin and elegant case is a testament to the brand's expertise in watchmaking.",
+    shortDescription: "Refined sophistication",
   },
   {
     brand: "Zenith",
@@ -218,6 +230,7 @@ let arr = [
       "https://www.rueschenbeck.de/media/catalog/product/cache/1/image/450x450/9df78eab33525d08d6e5fb8d27136e95/1/8/18-3101-3600-69-M3100__0.jpg",
     description:
       "The Zenith Chronomaster Sport is a versatile and sporty watch that combines style and performance. Its high-precision movement and chronograph function make it the perfect watch for the modern adventurer.",
+    shortDescription: "Versatile performance",
   },
   {
     brand: "Breguet",
@@ -232,6 +245,7 @@ let arr = [
       "https://wempe-media.com/media/image/5177BR159V6_BG110106_wempe_01.jpg",
     description:
       "The Breguet Classique 5177 is a classic and elegant watch that features the brand's signature guilloché dial and Breguet hands. Its refined design is a tribute to the brand's long-standing heritage in watchmaking.",
+    shortDescription: "Classic elegance",
   },
   {
     brand: "Chopard",
@@ -246,6 +260,7 @@ let arr = [
       "https://juwelierklink.de/wp-content/uploads/2020/12/ChopLUC-600x600.jpg",
     description:
       "The Chopard L.U.C XP is a sleek and sophisticated watch that features a beautifully designed dial with a date window at 6 o'clock. Its slim and elegant case is a testament to the brand's expertise in watchmaking.",
+    shortDescription: "Sleek sophistication",
   },
   {
     brand: "Audemars Piguet",
@@ -260,6 +275,7 @@ let arr = [
       "https://images.stockx.com/images/Audemars-Piguet-Royal-Oak-Chronograph-26331STOO1220ST01-Blue-front.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90&dpr=2&trim=color&updated_at=1610578031",
     description:
       "The Audemars Piguet Royal Oak Chronograph is a classic and iconic watch that features the brand's signature octagonal bezel and 'Grande Tapisserie' dial. Its high-precision movement and chronograph function make it the perfect watch for the modern gentleman.",
+    shortDescription: "Iconic precision",
   },
   {
     brand: "IWC Schaffhausen",
@@ -274,6 +290,7 @@ let arr = [
       "https://www.iwc.com/content/dam/rcq/iwc/21/50/06/1/2150061.png.transform.global_image_png_180_2x.png",
     description:
       "The IWC Schaffhausen Portugieser Chronograph is a classic and elegant watch that features a beautifully designed dial with a chronograph function and a date window at 3 o'clock. Its refined design is a testament to the brand's long-standing heritage in watchmaking.",
+    shortDescription: "Classic refinement",
   },
   {
     brand: "Glashütte Original",
@@ -288,6 +305,7 @@ let arr = [
       "https://service.glashuette-original.com/storage/masters/watches/medium/W13604010261.png",
     description:
       "The Glashütte Original Senator Excellence Panorama Date Moon Phase is a sophisticated and elegant watch that features a beautifully designed moon phase display and panorama date. Its refined design is a tribute to the brand's long-standing heritage in watchmaking.",
+    shortDescription: "Timeless luxury",
   },
 ];
 
@@ -323,15 +341,13 @@ router.get("/watches/:id", async (req, res) => {
   res.render("watch-details", watch);
 });
 
-
 //Search specific watch by Brand name
 router.get("/watch-search", async (req, res) => {
-const {brand} = req.query
-const watches = await Watch.find({brand})
+  const { brand } = req.query;
+  const watches = await Watch.find({ brand });
 
-res.render("watches/index", {watches})
-})
-
+  res.render("watches/index", { watches });
+});
 
 // add to cart page
 // router.post("/cart/add", async (req, res) => {
@@ -346,37 +362,21 @@ res.render("watches/index", {watches})
 //   res.render("cart", watch);
 // });
 
-router.get("/cart", async (req, res) => {
-  const cartID = req.session.cartID;
-  let products = [];
-  // let price = 0;
-  // let quantity = 0;
-
-  if (cartID) {
-    // find the cart for the current user
-    const cart = await Cart.findOne({ _id: cartID });
-    products = cart.products;
-    // price = cart.price;
-    // quantity = cart.quantity;
-  }
-
-  console.log(products);
-
-  res.render("cart", {
-    products,
-    // price,
-    // quantity,
-  });
-});
-
 // add to cart
 router.post("/cart/add", async (req, res) => {
   const id = req.body.watchID;
   console.log("this is the id from the request body!");
   console.log(id);
+  const watch = await Watch.findById(id);
   const cart = await Cart.findOneAndUpdate(
     {},
-    { $push: { products: id } },
+    {
+      $push: {
+        products: `${watch.brand} ${watch.model}`,
+        price: `${watch.price}`,
+        id: ` ${watch._id}`,
+      },
+    },
     { upsert: true, new: true }
   );
   console.log("SHOPPING CART BELOW!");
@@ -388,6 +388,7 @@ router.post("/cart/add", async (req, res) => {
   res.redirect("/cart");
   // res.send("adding to cart!");
 });
+
 
 router.post("/watches/:id", (req, res, next) => {
   const watchID = req.params.id
@@ -405,6 +406,62 @@ router.post("/watches/:id", (req, res, next) => {
   })
 
 
+// remove from cart
+router.post("/cart/remove", async (req, res) => {
+  console.log("THIS IS THE REQUEST BODY");
+  console.log(req.body);
+  const id = req.body.watchID;
+  console.log("THIS IS THE WATCH ID!!!");
+  console.log(id);
+  console.log("HELLO FROM THE REMOVE ENDPOINT!");
+  // const cartID = req.session.cartID;
+  // const watch = await Watch.findById(id);
+
+  // const cart = await Cart.findOneAndUpdate(
+  //   { _id: cartID },
+  //   {
+  //     $pull: {
+  //       products: `${watch.brand} ${watch.model}`,
+  //       price: `${watch.price}`,
+  //     },
+  //   },
+  //   { new: true }
+  // );
+
+  // set a success message in the session
+  // req.session.successMessage = "Item removed from cart!";
+  // res.redirect("/cart");
+});
+
+router.get("/cart", async (req, res) => {
+  const cartID = req.session.cartID;
+  console.log("THIS IS THE CART ID");
+  console.log(cartID);
+  let products = [];
+  let price = 0;
+  // let quantity = 0;
+
+  if (cartID) {
+    // find the cart for the current user
+    const cart = await Cart.findOne({ _id: cartID });
+    const products = cart.products;
+    const prices = cart.price;
+    const id = cart.id;
+    let productPrices = {};
+    for (let i = 0; i < prices.length; i++) {
+      productPrices[products[i]] = prices[i];
+    }
+    console.log("PRODUCTPRICES BELOW!!!");
+    console.log(productPrices);
+    console.log("PRODUCT ID BELOW");
+    console.log(id);
+
+    res.render("cart", {
+      productPrices,
+      id,
+    });
+  }
+});
 
 module.exports = router;
 

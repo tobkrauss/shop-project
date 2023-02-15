@@ -1,30 +1,7 @@
 const router = require("express").Router();
-const Review = require("../models/Review.model");
-const axios = require("axios");
-const Watch = require("../models/Watch.model");
-const Cart = require("../models/Cart.model");
-
-// creating a new watch
-// const watch = new Watch({
-//   brand: "Rolex",
-//   model: "Daytona",
-//   caseMaterial: "18kt yellow gold",
-//   bandMaterial: "Oysterflex",
-//   price: 30000,
-// });
-
-// watch
-//   .save()
-//   .then((data) => {
-//     console.log("HOORAY YOU HAVE A NEW WATCH");
-//     console.log(data);
-//   })
-//   .catch((e) => {
-//     console.log("OH NO WATCH ERRORSS");
-//     console.log(e);
-//   });
-
-//create many watches
+const Watch = require("./models/Watch.model");
+// const dotenv = require("dotenv");
+// require("dotenv").config();
 
 let arr = [
   {
@@ -291,102 +268,41 @@ let arr = [
   },
 ];
 
-// Delete all
-Watch.deleteMany()
+Watch.create({
+  brand: "Glashütte Original",
+  model: "Senator Excellence Panorama Date Moon Phase",
+  price: 13200,
+  caseMaterial: "Stainless steel",
+  bandMaterial: "Alligator leather",
+  waterResistance: 50,
+  movement: "Caliber 36-04, automatic",
+  features: ["Moon phase display", "Panorama date"],
+  imageUrl:
+    "https://service.glashuette-original.com/storage/masters/watches/medium/W13604010261.png",
+  description:
+    "The Glashütte Original Senator Excellence Panorama Date Moon Phase is a sophisticated and elegant watch that features a beautifully designed moon phase display and panorama date. Its refined design is a tribute to the brand's long-standing heritage in watchmaking.",
+})
   .then(() => {
-    console.log("WATCHES DELETED!");
+    console.log("new watch created");
   })
   .catch((err) => console.log(err));
+
+//create many watches
+
+// Delete all
+// Watch.deleteMany()
+//   .then(() => {
+//     console.log("WATCHES DELETED!");
+//   })
+//   .catch((err) => console.log(err));
 
 // Insert the documents using insertMany()
-Watch.insertMany(arr)
-  .then(() => {
-    console.log("WATCHES SEEDED SUCCESS");
-  })
-  .catch((err) => console.log(err));
+// Watch.insertMany(arr)
+//   .then(() => {
+//     console.log("WATCHES SEEDED SUCCESS");
+//   })
+//   .catch((err) => console.log(err));
 
-// Find all watches
-router.get("/watches", async (req, res) => {
-  const allWatches = await Watch.find();
-  console.log(allWatches);
-  // res.send("fetchin all watches!");
-  res.render("index", { allWatches });
-});
-
-// Get specific watch
-router.get("/watches/:id", async (req, res) => {
-  const watchID = req.params.id;
-  const watch = await Watch.findById(watchID);
-  console.log(watch);
-  // res.send("fething watchs!");
-  res.render("watch-details", watch);
-});
-
-// add to cart page
-// router.post("/cart/add", async (req, res) => {
-//   const id = req.body.watchID;
-//   console.log("this is the id from the request body!");
-//   console.log(id);
-//   const watch = await Cart.create({
-//     products: id,
-//   });
-//   // res.send("adding to cart!");
-//   // res.redirect("/cart");
-//   res.render("cart", watch);
-// });
-
-router.get("/cart", async (req, res) => {
-  const cartID = req.session.cartID;
-  let products = [];
-  // let price = 0;
-  // let quantity = 0;
-
-  if (cartID) {
-    // find the cart for the current user
-    const cart = await Cart.findOne({ _id: cartID });
-    products = cart.products;
-    // price = cart.price;
-    // quantity = cart.quantity;
-  }
-
-  console.log(products);
-
-  res.render("cart", {
-    products,
-    // price,
-    // quantity,
-  });
-});
-
-// add to cart
-router.post("/cart/add", async (req, res) => {
-  const id = req.body.watchID;
-  console.log("this is the id from the request body!");
-  console.log(id);
-  const cart = await Cart.findOneAndUpdate(
-    {},
-    { $push: { products: id } },
-    { upsert: true, new: true }
-  );
-  console.log("SHOPPING CART BELOW!");
-  console.log(cart);
-  // store the cart ID in the session
-  req.session.cartID = cart._id;
-  // set a success message in the session
-  req.session.successMessage = "Added to cart!";
-  res.redirect("/cart");
-  // res.send("adding to cart!");
-});
+// addWatch();
 
 module.exports = router;
-
-//render celeb detail page
-// router.get("/celebs/:id", (req, res, next) => {
-//   const celebId = req.params.id;
-//   Celeb.findById(celebId)
-//     .then((celebsFromDB) => {
-//       console.log(celebsFromDB);
-//       res.render("celebs/detail", { celeb: celebsFromDB });
-//     })
-//     .catch((err) => next(err));
-// });

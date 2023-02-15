@@ -324,3 +324,45 @@ img:hover {
   padding: 20px;
   text-align: center;
 } */
+
+.review-container {
+  display: flex;
+  margin: 50px auto;
+  flex-direction: column;
+}
+
+.review-container h2 {
+  margin: 20px 0;
+}
+
+.review-details {
+  display: flex;
+  flex-direction: row;
+  margin: 0 10px 0 0;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.review-details span {
+  color: #bf8970;
+  font-style: italic;
+  font-size: 0.8em;
+  margin-bottom: 10px;
+}
+
+
+.add-review-container h2 {
+  margin-bottom: 20px;
+}
+
+.add-review-container input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  width: 400px;
+}
+
+.review-description {
+  height: 200px;
+  text-align: start;
+}

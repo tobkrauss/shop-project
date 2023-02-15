@@ -1,23 +1,27 @@
 <div class="shopping-container">
-  <h1>Your Shopping Cart</h1>
-  <ul class="shopping-list">
-    {{#each products}}
-      <ul>
-        <li>{{this.brand}}
-          -
+
+  {{#each products}}
+    <div class="shopping-card">
+      <img class="shopping-image" src={{this.imageUrl}} alt="" />
+      {{!-- <h1> {{this.imageUrl}} </h1> --}}
+      <ul class="shopping-text">
+        <li class="shopping-name">{{this.brand}}
           {{this.model}}
-          -
-          {{this.price}}
-          -
-          {{this.id}}
-          <form action="/cart/remove" method="POST">
-            <input type="hidden" name="productID" value="{{this.id}}" />
-            <button type="submit">Remove from cart</button>
-          </form>
         </li>
+        <li class="shopping-stock">In Stock</li>
+        <form action="/cart/remove" method="POST">
+          <input type="hidden" name="productID" value="{{this.id}}" />
+          <button type="submit">Remove from cart</button>
+        </form>
+
       </ul>
-    {{/each}}
-  </ul>
+      <li class="shopping-price">
+        USD
+        {{this.price}}
+      </li>
+    </div>
+  {{/each}}
+
 </div>
 
 <p>this is the updateded version 10:31am</p>

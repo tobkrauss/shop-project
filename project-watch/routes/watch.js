@@ -287,19 +287,19 @@ let arr = [
   },
 ];
 
-// Delete all
-Watch.deleteMany()
-  .then(() => {
-    console.log("WATCHES DELETED!");
-  })
-  .catch((err) => console.log(err));
+// // Delete all
+// Watch.deleteMany()
+//   .then(() => {
+//     console.log("WATCHES DELETED!");
+//   })
+//   .catch((err) => console.log(err));
 
-// Insert the documents using insertMany()
-Watch.insertMany(arr)
-  .then(() => {
-    console.log("WATCHES SEEDED SUCCESS");
-  })
-  .catch((err) => console.log(err));
+// // Insert the documents using insertMany()
+// Watch.insertMany(arr)
+//   .then(() => {
+//     console.log("WATCHES SEEDED SUCCESS");
+//   })
+//   .catch((err) => console.log(err));
 
 // Find all watches
 router.get("/watches", async (req, res) => {
@@ -341,6 +341,7 @@ router.post("/cart/add", async (req, res) => {
           model: watch.model,
           id: watch._id,
           price: watch.price,
+          imageUrl: watch.imageUrl,
         },
       },
     },
@@ -356,6 +357,7 @@ router.post("/cart/add", async (req, res) => {
   // res.send("adding to cart!");
 });
 
+// review route
 router.post("/watches/:id", (req, res, next) => {
   const watchID = req.params.id;
   const { title, description, rating } = req.body;

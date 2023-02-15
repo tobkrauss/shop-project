@@ -304,6 +304,13 @@ img:hover {
   font-size: 24px;
 }
 
+.shopping-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 50px;
+}
+
 /* .models-grid {
   display: flex;
   flex-wrap: wrap;
@@ -350,7 +357,6 @@ img:hover {
   margin-bottom: 10px;
 }
 
-
 .add-review-container h2 {
   margin-bottom: 20px;
 }
@@ -365,4 +371,27 @@ img:hover {
 .review-description {
   height: 200px;
   text-align: start;
+}
+
+.shopping-image {
+  width: 200px;
+}
+
+.shopping-text {
+  list-style: none;
+  width: 300px;
+}
+
+.shopping-name {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.shopping-stock {
+  color: green;
+  margin-bottom: 10px;
+}
+
+.shopping-price {
+  list-style: none;
 }

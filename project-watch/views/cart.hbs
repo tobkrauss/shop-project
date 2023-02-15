@@ -1,34 +1,33 @@
-<div class="shopping-container">
-  <h1>Your Shopping Cart</h1>
-  <ul class="shopping-list">
-    {{#each products}}
-      <ul>
-        <li>{{this.brand}}
-          -
-          {{this.model}}
-          -
-          {{this.price}}
-          -
-          {{this.id}}
+<!-- HTML code -->
+<div class="shopping-cart">
+  {{#each products}}
+    <div class="shopping-card">
+      <img class="shopping-image" src={{this.imageUrl}} alt="" />
+      <ul class="shopping-text">
+        <li class="shopping-name">{{this.brand}} {{this.model}}</li>
+        <li class="shopping-stock">In Stock</li>
+        <div class="shopping-forms">
           <form action="/cart/remove" method="POST">
             <input type="hidden" name="productID" value="{{this.id}}" />
-            <button type="submit">Remove from cart</button>
+            <button type="submit" class="cart-btn-remove">Remove from cart</button>
           </form>
-        </li>
+          <form action="#" method="POST">
+            <input type="hidden" name="productID" value="{{this.id}}" />
+            <button type="submit" class="cart-btn">Add to collection</button>
+          </form>
+        </div>
       </ul>
-    {{/each}}
-  </ul>
-</div>
-
-<p>this is the updateded version 10:31am</p>
-
-{{!-- <li class="shopping-item">{{@key}}
-  - ${{this}}
-
-  {{! YOU ARE NOT PASSING THE ID YET!!! }}
-  <form action="/cart/remove" method="POST">
-    <input type="hidden" name="watchID" value="{{this._id}}" />
-    <button type="submit">Remove from cart</button>
+      <li class="shopping-price">USD {{this.price}}</li>
+    </div>
+  {{/each}}
+  <div class="shopping-total">Total: USD
+    <span id="total-price"> {{total}} </span>
+  </div>
+  <img src="/images/paymentmethods.png" alt="" class="shopping-methods" />
+  <form action="#" method="POST">
+    <input type="hidden" name="#" value="{{this._id}}" />
+    <button type="submit" class="checkout-btn">Proceed to Checkout</button>
   </form>
 
-</li> --}}
+</div>
+<p>this is the updateded version 10:31am</p>

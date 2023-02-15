@@ -394,34 +394,56 @@ router.get("/cart", async (req, res) => {
 });
 
 // remove from cart
+// router.post("/cart/remove", async (req, res) => {
+//   try {
+//     console.log("THIS IS THE REQUEST BODY");
+//     console.log(req.body);
+//     const id = req.body.watchID;
+//     console.log("THIS IS THE WATCH ID!!!");
+//     console.log(id);
+//     console.log("HELLO FROM THE REMOVE ENDPOINT!");
+//     const cartID = req.session.cartID;
+//     console.log(cartID);
+//     const watch = await Watch.findById(id);
+//     const cart = await Cart.findOneAndUpdate(
+//       { _id: cartID },
+//       {
+//         $pull: {
+//           products: {
+//             id: watch._id,
+//           },
+//         },
+//       },
+//       { new: true }
+//     );
+//     // set a success message in the session
+//     req.session.successMessage = "Item removed from cart!";
+//     res.redirect("/cart");
+//   } catch (err) {
+//     console.log("ERROR IN REMOVING ITEM FROM CART");
+//   }
+// });
+
+// remove from cart
 router.post("/cart/remove", async (req, res) => {
-  try {
-    console.log("THIS IS THE REQUEST BODY");
-    console.log(req.body);
-    const id = req.body.watchID;
-    console.log("THIS IS THE WATCH ID!!!");
-    console.log(id);
-    console.log("HELLO FROM THE REMOVE ENDPOINT!");
-    const cartID = req.session.cartID;
-    console.log(cartID);
-    const watch = await Watch.findById(id);
-    const cart = await Cart.findOneAndUpdate(
-      { _id: cartID },
-      {
-        $pull: {
-          products: {
-            id: watch._id,
-          },
-        },
-      },
-      { new: true }
-    );
-    // set a success message in the session
-    req.session.successMessage = "Item removed from cart!";
-    res.redirect("/cart");
-  } catch (err) {
-    console.log("ERROR IN REMOVING ITEM FROM CART");
-  }
+  const productId = req.body.productID;
+  const cartId = req.session.cartID;
+
+  // find the cart by ID
+  const cart = await Cart.findById(cartId);
+
+  // remove the product from the products array in the cart
+  cart.products = cart.products.filter(
+    (product) => product.id.toString() !== productId.toString()
+  );
+
+  // save the updated cart
+  await cart.save();
+
+  // set a success message in the session
+  req.session.successMessage = "Product removed from cart!";
+
+  res.redirect("/cart");
 });
 
 module.exports = router;

@@ -125,6 +125,16 @@ router.get("/watches/:id", async (req, res) => {
   res.render("watch-details", watch);
 });
 
+//Search specific watch by Brand name
+router.get("/watch-search", async (req, res) => {
+const {brand} = req.query
+const watches = await Watch.find({brand})
+
+res.render("watches/index", {watches})
+})
+
+
+
 module.exports = router;
 
 //render celeb detail page

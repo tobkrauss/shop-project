@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
     <nav class="navbar-home">
+     <a href="/watches" class="nav-btn">Home</a> 
       <a href="/auth/signup" class="nav-btn">Signup</a>
       <a href="/auth/login" class="nav-btn">Login</a>
       <a href="/profile" class="nav-btn">My Profile</a>
@@ -15,13 +16,13 @@
      
       <form action="/watch-search" class="search-form" method="GET">
         <label for="query"></label>
-        <input type="text" id="query" name="brand" placeholder="Find your favourite watch..."/>
+        <input type="text" id="query" name="brand" placeholder="Find your favourite brand..."/>
         <button type="submit" class="home-btn">Search</button>
       </form>
 
     </section>
      <div class="watch-grid">
-    {{#each allWatches}}
+    {{#each watches}}
         <div class="watch-card">
           <a href="/watches/{{this._id}}"><img class="watch-hero" src={{this.image}} alt="" /></a>
 

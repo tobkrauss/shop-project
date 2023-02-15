@@ -12,4 +12,5 @@ router.get("/profile", isLoggedin, (req, res, next) => {
   res.render("profile", {user});
 });
 
+
 module.exports = router;

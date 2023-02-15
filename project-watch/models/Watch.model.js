@@ -45,10 +45,10 @@ const watchSchema = new Schema({
   },
   reviews: [
     {
-        type: Schema.Types.ObjectId,
-        ref: "Review"
-    }
-],
+      type: Schema.Types.ObjectId,
+      ref: "Review",
+    },
+  ],
   shortDescription: {
     type: String,
     required: true,

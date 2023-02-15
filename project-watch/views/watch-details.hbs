@@ -5,7 +5,7 @@
 
 <div class="watch-container">
   <div class="watch-image">
-    <img src={{this.image}} alt="" />
+    <img class="watch-image" src={{this.imageUrl}} alt="" />
   </div>
   <div class="watch-text">
     <h2>Case</h2>
@@ -14,6 +14,11 @@
     <p>{{this.bandMaterial}}</p>
     <h2>Price</h2>
     <p>${{this.price}}</p>
-    <button>Add to cart</button>
+
+    <form action="/cart/add" method="POST">
+      <input type="hidden" name="watchID" value="{{this._id}}" />
+      <button type="submit">Add to Cart</button>
+    </form>
+
   </div>
 </div>

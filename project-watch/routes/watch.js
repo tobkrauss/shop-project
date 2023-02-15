@@ -4,28 +4,6 @@ const axios = require("axios");
 const Watch = require("../models/Watch.model");
 const Cart = require("../models/Cart.model");
 
-// creating a new watch
-// const watch = new Watch({
-//   brand: "Rolex",
-//   model: "Daytona",
-//   caseMaterial: "18kt yellow gold",
-//   bandMaterial: "Oysterflex",
-//   price: 30000,
-// });
-
-// watch
-//   .save()
-//   .then((data) => {
-//     console.log("HOORAY YOU HAVE A NEW WATCH");
-//     console.log(data);
-//   })
-//   .catch((e) => {
-//     console.log("OH NO WATCH ERRORSS");
-//     console.log(e);
-//   });
-
-//create many watches
-
 let arr = [
   {
     brand: "Rolex",
@@ -348,19 +326,6 @@ router.get("/watch-search", async (req, res) => {
   res.render("watches/index", { watches });
 });
 
-// add to cart page
-// router.post("/cart/add", async (req, res) => {
-//   const id = req.body.watchID;
-//   console.log("this is the id from the request body!");
-//   console.log(id);
-//   const watch = await Cart.create({
-//     products: id,
-//   });
-//   // res.send("adding to cart!");
-//   // res.redirect("/cart");
-//   res.render("cart", watch);
-// });
-
 // add to cart
 router.post("/cart/add", async (req, res) => {
   const id = req.body.watchID;
@@ -408,35 +373,7 @@ router.post("/watches/:id", (req, res, next) => {
     .catch((err) => next(err));
 });
 
-// remove from cart
-router.post("/cart/remove", async (req, res) => {
-  console.log("THIS IS THE REQUEST BODY");
-  console.log(req.body);
-  const id = req.body.watchID;
-  console.log("THIS IS THE WATCH ID!!!");
-  console.log(id);
-  console.log("HELLO FROM THE REMOVE ENDPOINT!");
-  const cartID = req.session.cartID;
-  console.log(cartID);
-  const watch = await Watch.findById(id);
-
-  const cart = await Cart.findOneAndUpdate(
-    { _id: cartID },
-    {
-      $pull: {
-        products: {
-          id: watch._id,
-        },
-      },
-    },
-    { new: true }
-  );
-
-  // set a success message in the session
-  req.session.successMessage = "Item removed from cart!";
-  res.redirect("/cart");
-});
-
+// display cart
 router.get("/cart", async (req, res) => {
   const cartID = req.session.cartID;
   console.log("THIS IS THE CART ID");
@@ -456,35 +393,57 @@ router.get("/cart", async (req, res) => {
   }
 });
 
-// delete item from cart
-// router.get("/cart/delete/:id", (req, res) => {
-//   Product.findByIdAndDelete(req.params.id)
-//     .then(() => {
-//       console.log("PRODUCT WAS REMOVED FROM CART!");
-//       res.redirect("/cart");
-//     })
-//     .catch((err) => console.log(err));
+// remove from cart
+// router.post("/cart/remove", async (req, res) => {
+//   try {
+//     console.log("THIS IS THE REQUEST BODY");
+//     console.log(req.body);
+//     const id = req.body.watchID;
+//     console.log("THIS IS THE WATCH ID!!!");
+//     console.log(id);
+//     console.log("HELLO FROM THE REMOVE ENDPOINT!");
+//     const cartID = req.session.cartID;
+//     console.log(cartID);
+//     const watch = await Watch.findById(id);
+//     const cart = await Cart.findOneAndUpdate(
+//       { _id: cartID },
+//       {
+//         $pull: {
+//           products: {
+//             id: watch._id,
+//           },
+//         },
+//       },
+//       { new: true }
+//     );
+//     // set a success message in the session
+//     req.session.successMessage = "Item removed from cart!";
+//     res.redirect("/cart");
+//   } catch (err) {
+//     console.log("ERROR IN REMOVING ITEM FROM CART");
+//   }
 // });
 
-// delete movie
-// router.get("/movies/delete/:id", (req, res, next) => {
-//   Movie.findByIdAndDelete(req.params.id)
-//     .then(() => {
-//       console.log("MOVIE WAS DELETED!!!");
-//       res.redirect("/movies");
-//     })
-//     .catch((err) => next(err));
-// });
+// remove from cart
+router.post("/cart/remove", async (req, res) => {
+  const productId = req.body.productID;
+  const cartId = req.session.cartID;
+
+  // find the cart by ID
+  const cart = await Cart.findById(cartId);
+
+  // remove the product from the products array in the cart
+  cart.products = cart.products.filter(
+    (product) => product.id.toString() !== productId.toString()
+  );
+
+  // save the updated cart
+  await cart.save();
+
+  // set a success message in the session
+  req.session.successMessage = "Product removed from cart!";
+
+  res.redirect("/cart");
+});
 
 module.exports = router;
-
-//render celeb detail page
-// router.get("/celebs/:id", (req, res, next) => {
-//   const celebId = req.params.id;
-//   Celeb.findById(celebId)
-//     .then((celebsFromDB) => {
-//       console.log(celebsFromDB);
-//       res.render("celebs/detail", { celeb: celebsFromDB });
-//     })
-//     .catch((err) => next(err));
-// });

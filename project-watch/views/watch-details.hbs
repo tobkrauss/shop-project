@@ -35,16 +35,11 @@
     </form>
 
 {{!-- // List the reviews --}}
-{{#if reviews}}
-{{#each reviews}}
-
-<div>
-    <h4>Title:{{this.title}}</4>
-    <p>Description: {{this.description}}</p>
-    <p>Rating: {{this.rating}}/5</p>
-</div>
+    {{#each this.reviews}}
+    <h4>Title: {{title}}</4>
+    <p>Description: {{description}}</p>
+    <p>Rating: {{rating}}/5</p>
 {{/each}}
-{{/if}}
 
 {{!-- Add Watch Review --}}
 <h2>Add review</h2>

@@ -390,19 +390,20 @@ router.post("/cart/add", async (req, res) => {
 });
 
 router.post("/watches/:id", (req, res, next) => {
+  const watchID = req.params.id
   const { title, description, rating } = req.body
-const watchID = req.params.id
 
   Review.create({title, description, rating})
   .then(createdReview => {
-    console.log(createdReview)
-    res.redirect(`/watches/${watchID}`)
-  })
-   
-    Watch.findByIdAndUpdate(watchID, {
-      $push: { reviews: { title, description, rating } }
+    Watch.findByIdAndUpdate(watchID, {$push: { reviews: createdReview._id} })
+      .then(watch => {
+        res.redirect(`/watches/${watchID}`)
+      })
+      .catch(err => next(err))
     })
+    .catch(err => next(err))
   })
+
 
 
 module.exports = router;

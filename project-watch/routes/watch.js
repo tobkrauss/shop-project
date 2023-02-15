@@ -322,15 +322,13 @@ router.get("/watches/:id", async (req, res) => {
   res.render("watch-details", watch);
 });
 
-
 //Search specific watch by Brand name
 router.get("/watch-search", async (req, res) => {
-const {brand} = req.query
-const watches = await Watch.find({brand})
+  const { brand } = req.query;
+  const watches = await Watch.find({ brand });
 
-res.render("watches/index", {watches})
-})
-
+  res.render("watches/index", { watches });
+});
 
 // add to cart page
 // router.post("/cart/add", async (req, res) => {
@@ -345,37 +343,27 @@ res.render("watches/index", {watches})
 //   res.render("cart", watch);
 // });
 
-router.get("/cart", async (req, res) => {
-  const cartID = req.session.cartID;
-  let products = [];
-  // let price = 0;
-  // let quantity = 0;
-
-  if (cartID) {
-    // find the cart for the current user
-    const cart = await Cart.findOne({ _id: cartID });
-    products = cart.products;
-    // price = cart.price;
-    // quantity = cart.quantity;
-  }
-
-  console.log(products);
-
-  res.render("cart", {
-    products,
-    // price,
-    // quantity,
-  });
-});
-
 // add to cart
 router.post("/cart/add", async (req, res) => {
   const id = req.body.watchID;
   console.log("this is the id from the request body!");
   console.log(id);
+  const watch = await Watch.findById(id);
+  console.log(watch.brand, watch.model, watch.price);
+  // const cart = await Cart.findOneAndUpdate(
+  //   {}, // specify the cart you want to update
+  //   { $push: [{ products: id }] }, // use the $push operator to add the new product to the products array
+  //   { new: true } // set the new option to true to return the updated document
+  // );
+
   const cart = await Cart.findOneAndUpdate(
     {},
-    { $push: { products: id } },
+    {
+      $push: {
+        products: `${watch.brand} ${watch.model}`,
+        price: `${watch.price}`,
+      },
+    },
     { upsert: true, new: true }
   );
   console.log("SHOPPING CART BELOW!");
@@ -386,6 +374,32 @@ router.post("/cart/add", async (req, res) => {
   req.session.successMessage = "Added to cart!";
   res.redirect("/cart");
   // res.send("adding to cart!");
+});
+
+router.get("/cart", async (req, res) => {
+  const cartID = req.session.cartID;
+  console.log("THIS IS THE CART ID");
+  console.log(cartID);
+  let products = [];
+  let price = 0;
+  // let quantity = 0;
+
+  if (cartID) {
+    // find the cart for the current user
+    const cart = await Cart.findOne({ _id: cartID });
+    products = cart.products;
+    price = cart.price;
+    // quantity = cart.quantity;
+  }
+
+  console.log("PRODUCTS:", products);
+  console.log("PRICE", price);
+
+  res.render("cart", {
+    products,
+    price,
+    // quantity,
+  });
 });
 
 module.exports = router;

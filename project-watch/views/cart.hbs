@@ -1,24 +1,34 @@
 <div class="shopping-container">
   <h1>Your Shopping Cart</h1>
   <ul class="shopping-list">
-    {{#each productPrices}}
-      <li class="shopping-item">{{@key}}
-        - ${{this}}
-
-        {{! YOU ARE NOT PASSING THE ID YET!!! }}
-        <form action="/cart/remove" method="POST">
-          <input type="hidden" name="watchID" value="{{this._id}}" />
-          <button type="submit">Remove from cart</button>
-        </form>
-
-      </li>
-
+    {{#each products}}
+      <ul>
+        <li>{{this.brand}}
+          -
+          {{this.model}}
+          -
+          {{this.price}}
+          -
+          {{this.id}}
+          <form action="/cart/remove" method="POST">
+            <input type="hidden" name="watchID" value="{{this.id}}" />
+            <button type="submit">Remove from cart</button>
+          </form>
+        </li>
+      </ul>
     {{/each}}
   </ul>
 </div>
 
-{{#each id}}
-  {{this}}
-{{/each}}
-
 <p>this is the updateded version 10:31am</p>
+
+{{!-- <li class="shopping-item">{{@key}}
+  - ${{this}}
+
+  {{! YOU ARE NOT PASSING THE ID YET!!! }}
+  <form action="/cart/remove" method="POST">
+    <input type="hidden" name="watchID" value="{{this._id}}" />
+    <button type="submit">Remove from cart</button>
+  </form>
+
+</li> --}}

@@ -334,8 +334,7 @@ router.get("/watches", async (req, res) => {
 // Get specific watch
 router.get("/watches/:id", async (req, res) => {
   const watchID = req.params.id;
-  const watch = await Watch.findById(watchID)
-  .populate("reviews")
+  const watch = await Watch.findById(watchID).populate("reviews");
   console.log(watch);
   // res.send("fething watchs!");
   res.render("watch-details", watch);
@@ -372,9 +371,12 @@ router.post("/cart/add", async (req, res) => {
     {},
     {
       $push: {
-        products: `${watch.brand} ${watch.model}`,
-        price: `${watch.price}`,
-        id: ` ${watch._id}`,
+        products: {
+          brand: watch.brand,
+          model: watch.model,
+          id: watch._id,
+          price: watch.price,
+        },
       },
     },
     { upsert: true, new: true }
@@ -389,22 +391,22 @@ router.post("/cart/add", async (req, res) => {
   // res.send("adding to cart!");
 });
 
-
 router.post("/watches/:id", (req, res, next) => {
-  const watchID = req.params.id
-  const { title, description, rating } = req.body
+  const watchID = req.params.id;
+  const { title, description, rating } = req.body;
 
-  Review.create({title, description, rating})
-  .then(createdReview => {
-    Watch.findByIdAndUpdate(watchID, {$push: { reviews: createdReview._id} })
-      .then(watch => {
-        res.redirect(`/watches/${watchID}`)
+  Review.create({ title, description, rating })
+    .then((createdReview) => {
+      Watch.findByIdAndUpdate(watchID, {
+        $push: { reviews: createdReview._id },
       })
-      .catch(err => next(err))
+        .then((watch) => {
+          res.redirect(`/watches/${watchID}`);
+        })
+        .catch((err) => next(err));
     })
-    .catch(err => next(err))
-  })
-
+    .catch((err) => next(err));
+});
 
 // remove from cart
 router.post("/cart/remove", async (req, res) => {
@@ -414,23 +416,25 @@ router.post("/cart/remove", async (req, res) => {
   console.log("THIS IS THE WATCH ID!!!");
   console.log(id);
   console.log("HELLO FROM THE REMOVE ENDPOINT!");
-  // const cartID = req.session.cartID;
-  // const watch = await Watch.findById(id);
+  const cartID = req.session.cartID;
+  console.log(cartID);
+  const watch = await Watch.findById(id);
 
-  // const cart = await Cart.findOneAndUpdate(
-  //   { _id: cartID },
-  //   {
-  //     $pull: {
-  //       products: `${watch.brand} ${watch.model}`,
-  //       price: `${watch.price}`,
-  //     },
-  //   },
-  //   { new: true }
-  // );
+  const cart = await Cart.findOneAndUpdate(
+    { _id: cartID },
+    {
+      $pull: {
+        products: {
+          id: watch._id,
+        },
+      },
+    },
+    { new: true }
+  );
 
   // set a success message in the session
-  // req.session.successMessage = "Item removed from cart!";
-  // res.redirect("/cart");
+  req.session.successMessage = "Item removed from cart!";
+  res.redirect("/cart");
 });
 
 router.get("/cart", async (req, res) => {
@@ -445,23 +449,32 @@ router.get("/cart", async (req, res) => {
     // find the cart for the current user
     const cart = await Cart.findOne({ _id: cartID });
     const products = cart.products;
-    const prices = cart.price;
-    const id = cart.id;
-    let productPrices = {};
-    for (let i = 0; i < prices.length; i++) {
-      productPrices[products[i]] = prices[i];
-    }
-    console.log("PRODUCTPRICES BELOW!!!");
-    console.log(productPrices);
-    console.log("PRODUCT ID BELOW");
-    console.log(id);
 
     res.render("cart", {
-      productPrices,
-      id,
+      products,
     });
   }
 });
+
+// delete item from cart
+// router.get("/cart/delete/:id", (req, res) => {
+//   Product.findByIdAndDelete(req.params.id)
+//     .then(() => {
+//       console.log("PRODUCT WAS REMOVED FROM CART!");
+//       res.redirect("/cart");
+//     })
+//     .catch((err) => console.log(err));
+// });
+
+// delete movie
+// router.get("/movies/delete/:id", (req, res, next) => {
+//   Movie.findByIdAndDelete(req.params.id)
+//     .then(() => {
+//       console.log("MOVIE WAS DELETED!!!");
+//       res.redirect("/movies");
+//     })
+//     .catch((err) => next(err));
+// });
 
 module.exports = router;
 

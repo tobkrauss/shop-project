@@ -45,27 +45,34 @@
         </form>
 
 {{!-- // List the reviews --}}
+<div class="review-container">
+<hr>
+<h2>REVIEWS</h2>
     {{#each this.reviews}}
+    <div class="review-details">
     <h4>Username: {{username}}</4>
-    <p>Description: {{description}}</p>
-    <p>Rating: {{rating}}/5</p>
+    <p><span>Rating: {{rating}}/5</span></p>
+    </div>
+    <p>{{description}}</p>
 {{/each}}
+</div>
 
 {{!-- Add Watch Review --}}
-<h2>Add review</h2>
+<div class="add-review-container">
+<h2>Write review</h2>
 <form action="/watches/{{this._id}}" method="POST">
 <label for="user"></label>
 <input type="text" name="username" placeholder="Username">
 
-<label for="text">Description (optional)</label>
-<input type="text" name="description" placeholder="Describe your experience with the watch">
+<label for="rating"></label>
+<input type="number" max="5" name="rating" placeholder="Rating">
 
-<label for="rating">Rating:</label>
-<input type="number" max="5" name="rating">
+<label for="text"></label>
+<input type="text" name="description" placeholder="Description (optional)" class="review-description">
 
 <button type="submit" class="watch-details-button">Add review</button>
-
 </form>
+</div>
 
   </div>
 </div>

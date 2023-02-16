@@ -624,13 +624,16 @@ hr {
 
 .search-input {
   padding: 20px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   background-color: white;
   color: white;
   border: none;
   margin-right: 25px;
   width: 300px;
   border: 1px solid black;
+  font-size: 16px;
+  /* font-weight: 600; */
+  /* font-family: Helvetica; */
 }
 
 .search-input:focus {

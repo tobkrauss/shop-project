@@ -336,9 +336,27 @@ router.post("/cart/add", async (req, res) => {
   const id = req.body.watchID;
   console.log("this is the id from the request body!");
   console.log(id);
+  console.log("THIS IS THE USER ID BELOW!!!");
+  console.log(req.user);
+  console.log("THIS IS THE REQUEST BODY");
+  console.log(req.body);
   const watch = await Watch.findById(id);
+
+  // check if the user is logged in
+  if (!req.user) {
+    // If the user is not logged in, set an error message in the session and redirect to the login page.
+    req.session.errorMessage =
+      "You need to log in to add products to the cart.";
+    return res.redirect("/login");
+  }
+
+  const userId = req.user._id;
+  console.log("THIS IS THS USERID!!!!*********");
+  console.log(userId);
+
+  // find the user cart
   const cart = await Cart.findOneAndUpdate(
-    {},
+    { userId },
     {
       $push: {
         products: {
@@ -354,12 +372,13 @@ router.post("/cart/add", async (req, res) => {
   );
   console.log("SHOPPING CART BELOW!");
   console.log(cart);
+
   // store the cart ID in the session
   req.session.cartID = cart._id;
+
   // set a success message in the session
   req.session.successMessage = "Added to cart!";
   res.redirect("/cart");
-  // res.send("adding to cart!");
 });
 
 // review route

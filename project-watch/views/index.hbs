@@ -6,11 +6,27 @@
     <link rel="stylesheet" href="stylesheets/style.css" />
     <title>Document</title>
 </head>
-    <nav class="navbar-home">
-      <a href="/auth/signup" class="nav-btn">Signup</a>
-      <a href="/auth/login" class="nav-btn">Login</a>
-      <a href="/profile" class="nav-btn">My Profile</a>
-    </nav>
+
+  <nav class="navbar-home">
+    <div class="logo-container">
+      <a href="#" class="nav-logo"> [Project-Watch] </a>
+    </div>
+
+    <div class="nav-container">
+    
+  {{#if user}}
+    <a href="/cart" class="nav-btn"> My Shopping Cart </a>
+    <a href="/collection" class="nav-btn"> My Collection </a>
+    <a href="/profile" class="nav-btn"> Hello, {{user.username}} </a>
+  {{else}}
+    <a href="/auth/signup" class="nav-btn">Signup</a>
+    <a href="/auth/login" class="nav-btn">Login</a>
+  {{/if}}
+  </div>
+</nav>
+
+
+
     <section class="search-home">
      
       <form action="/watch-search" class="search-form" method="GET">

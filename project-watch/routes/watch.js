@@ -311,6 +311,8 @@ router.get("/watches", async (req, res) => {
   const allWatches = await Watch.find();
   console.log(allWatches);
   // res.send("fetchin all watches!");
+  console.log("THIS IS THE REQ USER FROM THE INDEX!!!!!");
+  console.log(req.user);
   res.render("index", { allWatches });
 });
 

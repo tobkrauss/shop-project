@@ -153,12 +153,14 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-bottom: -100px;
 }
 
 .search-form {
   display: flex;
   flex-direction: row;
   margin: 0 10px;
+  margin-bottom: 100px;
 }
 
 .search-home input {
@@ -206,8 +208,12 @@ body {
 }
 
 .watch-card {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: start; */
+  display: grid;
+  grid-template-rows: 1fr 1fr;
   align-items: center;
   justify-content: center;
 }
@@ -612,7 +618,7 @@ hr {
   height: 1px;
   background-color: #333;
   margin: 20px 0;
-  width: 90%;
+  width: 60%;
   margin: 0 auto;
   margin-top: 50px;
 }
@@ -639,7 +645,7 @@ hr {
   /* text-transform: uppercase; */
   background-color: white;
   color: white;
-  border: none;
+  /* border: none; */
   margin-right: 25px;
   width: 300px;
   border: 1px solid black;
@@ -687,4 +693,67 @@ hr {
   align-items: center;
   justify-content: center;
   row-gap: 20px;
+}
+
+.hr-index {
+  width: 100%;
+}
+
+.watch-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Change to 3 columns */
+  grid-gap: 50px;
+}
+
+.watch-card {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background-color: #fff;
+  height: 400px;
+}
+
+.watch-card-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px; /* Set a fixed height for the image container */
+  overflow: hidden; /* Hide any parts of the image that exceed the container */
+  transition: transform 0.2s ease-out;
+}
+
+.watch-hero {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover; /* Scale the image to fit the container without stretching it */
+}
+
+.watch-card-text {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.watch-index-title {
+  font-size: 1rem;
+  /* letter-spacing: 3px; */
+  /* font-weight: bold; */
+  margin-bottom: 10px;
+  /* text-decoration: none; */
+}
+
+.watch-index-description {
+  font-size: 0.8rem;
+  margin: 0;
+  margin-bottom: 25px;
+  /* text-decoration: none; */
+}
+
+.watch-card-link {
+  text-decoration: none;
+  color: #444;
+}
+
+.watch-card:hover .watch-card-img {
+  transform: scale(1.1); /* Scale the image container on hover */
 }

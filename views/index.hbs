@@ -1,32 +1,38 @@
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="stylesheets/style.css" />
-    <title>Document</title>
-</head>
+<section class="search-home">
 
-    <section class="search-home">
-     
-      <form action="/watch-search" class="search-form" method="GET">
-        <label for="query"></label>
-        <input class="search-input" type="text" id="query" name="brand" placeholder="Find your favourite watch..." required/>
-        {{!-- <input type="text" id="query" name="brand" placeholder="Find your favourite watch..." required /> --}}
-        <button type="submit" class="home-btn">Search</button>
-      </form>
+  <form action="/watch-search" class="search-form" method="GET">
+    <label for="query"></label>
+    <input
+      class="search-input"
+      type="text"
+      id="query"
+      name="brand"
+      placeholder="Find your favourite watch..."
+      required
+    />
+    {{! <input type="text" id="query" name="brand" placeholder="Find your favourite watch..." required /> }}
+    <button type="submit" class="home-btn">Search</button>
+  </form>
 
-    </section>
-     <div class="watch-grid">
-    {{#each allWatches}}
-        <div class="watch-card">
-          <a href="/watches/{{this._id}}"><img class="watch-hero" src={{this.imageUrl}} alt="" /></a>
+  <div class="collection-title">
+    <h1 class="collection-title-text">Our Spring 2023 Collection</h1>
+  </div>
 
+  <hr class="hr-index" />
+
+</section>
+<div class="watch-grid">
+  {{#each allWatches}}
+    <a href="/watches/{{this._id}}" class="watch-card-link">
+      <div class="watch-card">
+        <div class="watch-card-img">
+          <img class="watch-hero" src={{this.imageUrl}} alt="" />
+        </div>
+        <div class="watch-card-text">
           <h2 class="watch-index-title">{{this.brand}} {{this.model}}</h2>
           <p class="watch-index-description">{{this.movement}}</p>
         </div>
-    {{/each}}
-    </div>
-  
-  </body>
-</html>
+      </div>
+    </a>
+  {{/each}}
+</div>

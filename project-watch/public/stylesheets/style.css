@@ -367,7 +367,7 @@ body {
 .review-details {
   display: flex;
   flex-direction: row;
-  margin: 30px 10px 10px 0;
+  margin: 30px 10px 0 0;
   font-size: 1.3em;
   font-weight: bold;
 }
@@ -377,6 +377,10 @@ body {
   font-style: italic;
   font-size: 0.8em;
   margin-bottom: 10px;
+}
+
+.review-text p {
+  margin-top: 10px;
 }
 
 .add-review-container {
@@ -395,10 +399,10 @@ body {
   width: 400px;
 }
 
-.review-description {
-  width: 400px;
+.review-description textarea {
+ width: 400px;
   justify-content: start;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 
 input::placeholder {

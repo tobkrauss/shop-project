@@ -54,7 +54,9 @@
     <span>(Rating: {{rating}}/5)</span>
     </div>
     <p>{{dateForReview}}</p>
+    <div class="review-text">
     <p>{{description}}</p>
+    </div>
 {{/each}}
 </div>
 
@@ -67,10 +69,10 @@
 
 <label for="rating"></label>
 <input type="number" max="5" name="rating" placeholder="Rating">
-
+<div class="review-description">
 <label for="text"></label>
-<textarea name="description" class="review-description" placeholder="Description" cols="30" rows="10"></textarea>
-
+<textarea name="description"  placeholder="Type your review here" cols="30" rows="10"></textarea>
+</div>
 <button type="submit" class="watch-details-button">Add review</button>
 </form>
 </div>

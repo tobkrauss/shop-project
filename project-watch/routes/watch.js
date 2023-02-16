@@ -320,6 +320,9 @@ router.get("/watches/:id", async (req, res) => {
   const watchID = req.params.id;
   const watch = await Watch.findById(watchID).populate("reviews");
   console.log(watch);
+  watch.reviews.forEach((review) => {
+review.dateForReview = review.createdAt.toUTCString()
+  })
   // res.send("fething watchs!");
   res.render("watch-details", watch);
 });
@@ -399,6 +402,28 @@ router.post("/watches/:id", isLoggedin, (req, res, next) => {
     })
     .catch((err) => next(err));
 });
+
+/* //Delete review
+router.get("/watches/:id/delete", (req, res, next) => {
+  const reviewId = req.params.id
+
+  // If you are an admin you can delete any room
+  // If you are a user you can delete rooms that you have created
+
+  const query = { _id: reviewId }
+  if (req.session.user.role === "user") {
+    query.owner = req.session.user._id
+  }
+
+  Review.findOneAndDelete(query)
+    .then(() => {
+      res.redirect(`/watches/${watchID}`)
+    })
+    .catch(err => next(err))
+}) */
+
+
+
 
 // display cart
 router.get("/cart", async (req, res) => {

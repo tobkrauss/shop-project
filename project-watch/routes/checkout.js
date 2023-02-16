@@ -10,24 +10,26 @@ router.post('/create-checkout-session', async (req, res) => {
 
   const cart = await Cart.findById(cartId)
   const products = cart.products
-  const price = cart.products[0].price
-  const productName = `${cart.products[0].brand} ${cart.products[0].model}`
+
+  let result = []
+  for (let i = 0; i < products.length; i++) {
+   result.push( {
+      price_data: {
+        currency: "usd",
+        unit_amount: cart.products[i].price*100,
+        product_data: {
+          name: `${cart.products[i].brand} ${cart.products[i].model}`,
+        },
+      },
+      quantity: 1,
+    })
+  }
+  
 
   const session = await stripe.checkout.sessions.create({
        payment_method_types: ['card'],
        mode: 'payment',
-       line_items: [
-        {
-          price_data: {
-            currency: "usd",
-            unit_amount: price*100,
-            product_data: {
-              name: productName,
-            },
-          },
-          quantity: 1,
-        },
-      ],
+       line_items: result,
        success_url: `${process.env.SERVER_URL}cart`,
        cancel_url: `${process.env.SERVER_URL}cart`,
   });

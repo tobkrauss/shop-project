@@ -428,59 +428,6 @@ router.get("/watches/:id/delete", (req, res, next) => {
 }) */
 
 // display cart
-// router.get("/cart", async (req, res) => {
-//   const cartID = req.session.cartID;
-//   console.log("THIS IS THE CART ID");
-//   console.log(cartID);
-//   let products = [];
-//   let price = 0;
-//   // let quantity = 0;
-
-//   if (cartID) {
-//     // find the cart for the current user
-//     const cart = await Cart.findOne({ _id: cartID });
-//     if (cart) {
-//     }
-//     const products = cart.products;
-//     console.log("THIS IS THE PRODUCT!!!!");
-//     console.log(products);
-//     const price = cart.products.price;
-//     console.log("THIS IS THE PRICE!!!!!");
-//     console.log(price);
-//     let total = 0;
-//     for (let i = 0; i < products.length; i++) {
-//       total += parseInt(products[i].price);
-//       console.log("THIS IS THE TOTAL!");
-//       console.log(total);
-//     }
-//     res.render("cart", {
-//       products,
-//       total,
-//     });
-//   } else {
-//     res.render("cart", {
-//       message: "Your shopping cart is empty.",
-//     });
-//   }
-// });
-
-// router.get("/cart", async (req, res) => {
-//   const cartID = req.session.cartID;
-//   if (cartID) {
-//     // find the cart for the current user
-//     const cart = await Cart.findOne({ _id: cartID });
-//     const products = cart.products;
-//     let total = 0;
-//     for (let i = 0; i < products.length; i++) {
-//       total += parseInt(products[i].price);
-//     }
-//     res.render("cart", {
-//       products,
-//       total,
-//     });
-//   }
-// });
-
 router.get("/cart", async (req, res) => {
   const cartID = req.session.cartID;
   if (cartID) {
@@ -579,21 +526,26 @@ router.post("/collection/add", async (req, res) => {
 // display collection
 router.get("/collection", async (req, res) => {
   const collectionId = req.session.collectionId;
-  console.log("THIS IS THE COLLECTION ID!!!");
-  console.log(collectionId);
-  let products = [];
-  let price = 0;
-  // let quantity = 0;
 
   if (collectionId) {
     // find the collection for the current user
     const collection = await Collection.findOne({ _id: collectionId });
-    const products = collection.products;
-    console.log("THIS IS THE PRODUCT!!!!");
-    console.log(products);
+    if (collection && collection.products.length > 0) {
+      const products = collection.products;
+      console.log("THIS IS THE PRODUCT!!!!");
+      console.log(products);
 
+      res.render("collection", {
+        products,
+      });
+    } else {
+      res.render("collection", {
+        message: "You don't have any watches in your collection.",
+      });
+    }
+  } else {
     res.render("collection", {
-      products,
+      message: "You don't have any watches in your collection.",
     });
   }
 });
@@ -639,3 +591,27 @@ router.get("/user", async (req, res) => {
 });
 
 module.exports = router;
+
+// display cart
+router.get("/cart", async (req, res) => {
+  const cartID = req.session.cartID;
+  if (cartID) {
+    // find the cart for the current user
+    const cart = await Cart.findOne({ _id: cartID });
+    if (cart && cart.products.length > 0) {
+      const products = cart.products;
+      let total = 0;
+      for (let i = 0; i < products.length; i++) {
+        total += parseInt(products[i].price);
+      }
+      res.render("cart", {
+        products,
+        total,
+      });
+    } else {
+      res.render("cart", { message: "Your shopping cart is empty." });
+    }
+  } else {
+    res.render("cart", { message: "Your shopping cart does not exist." });
+  }
+});

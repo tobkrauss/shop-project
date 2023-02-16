@@ -335,7 +335,7 @@ router.get("/watches/:id", async (req, res) => {
 //Search specific watch by Brand name
 router.get("/watch-search", async (req, res) => {
   const { brand } = req.query;
-  
+
   const watches = await Watch.find({ brand });
 
   res.render("watches/index", { watches });
@@ -594,25 +594,25 @@ router.get("/user", async (req, res) => {
 module.exports = router;
 
 // display cart
-router.get("/cart", async (req, res) => {
-  const cartID = req.session.cartID;
-  if (cartID) {
-    // find the cart for the current user
-    const cart = await Cart.findOne({ _id: cartID });
-    if (cart && cart.products.length > 0) {
-      const products = cart.products;
-      let total = 0;
-      for (let i = 0; i < products.length; i++) {
-        total += parseInt(products[i].price);
-      }
-      res.render("cart", {
-        products,
-        total,
-      });
-    } else {
-      res.render("cart", { message: "Your shopping cart is empty." });
-    }
-  } else {
-    res.render("cart", { message: "Your shopping cart does not exist." });
-  }
-});
+// router.get("/cart", async (req, res) => {
+//   const cartID = req.session.cartID;
+//   if (cartID) {
+//     // find the cart for the current user
+//     const cart = await Cart.findOne({ _id: cartID });
+//     if (cart && cart.products.length > 0) {
+//       const products = cart.products;
+//       let total = 0;
+//       for (let i = 0; i < products.length; i++) {
+//         total += parseInt(products[i].price);
+//       }
+//       res.render("cart", {
+//         products,
+//         total,
+//       });
+//     } else {
+//       res.render("cart", { message: "Your shopping cart is empty." });
+//     }
+//   } else {
+//     res.render("cart", { message: "Your shopping cart does not exist." });
+//   }
+// });

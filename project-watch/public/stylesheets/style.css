@@ -676,3 +676,7 @@ hr {
   justify-content: center;
   row-gap: 20px;
 }
+
+.empty-cart-btn {
+  margin-bottom: 200px;
+}

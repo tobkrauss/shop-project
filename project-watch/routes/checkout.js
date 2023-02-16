@@ -8,11 +8,13 @@ router.post('/create-checkout-session', async (req, res) => {
   const session = await stripe.checkout.sessions.create({
        payment_method_types: ['card'],
        mode: 'payment',
-       line_items: [{price: 'price_H5ggYwtDq4fbrJ', quantity: 2}],
+       line_items: [
+        {price: '{{PRICE_ID}}', quantity: 2}
+      ],
        success_url: `${process.env.SERVER_URL}/success.html`,
        cancel_url: `${process.env.SERVER_URL}/cancel.html`,
-    
   });
+  console.log("PAYMENT SESSION CREATED")
   res.redirect(303, session.url)
   
 });

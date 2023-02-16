@@ -24,8 +24,7 @@
     <span id="total-price"> {{total}} </span>
   </div>
   <img src="/images/paymentmethods.png" alt="" class="shopping-methods" />
-  <form action="#" method="POST">
-    <input type="hidden" name="#" value="{{this._id}}" />
+  <form action="/create-checkout-session" method="POST">
     <button type="submit" class="checkout-btn">Proceed to Checkout</button>
   </form>
 

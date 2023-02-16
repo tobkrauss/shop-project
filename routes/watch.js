@@ -335,7 +335,7 @@ router.get("/watches/:id", async (req, res) => {
 //Search specific watch by Brand name
 router.get("/watch-search", async (req, res) => {
   const { brand } = req.query;
-  
+
   const watches = await Watch.find({ brand });
 
   res.render("watches/index", { watches });
@@ -375,6 +375,7 @@ router.post("/cart/add", async (req, res) => {
           id: watch._id,
           price: watch.price,
           imageUrl: watch.imageUrl,
+          movement: watch.movement,
         },
       },
     },

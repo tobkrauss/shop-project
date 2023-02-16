@@ -572,7 +572,7 @@ router.post("/collection/remove", async (req, res) => {
   res.redirect("/collection");
 });
 
-// display
+// display user profile
 router.get("/user", async (req, res) => {
   const userId = req.user.id;
   console.log("THIS IS THE USER ID!");

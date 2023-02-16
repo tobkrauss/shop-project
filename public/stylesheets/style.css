@@ -278,6 +278,10 @@ body {
   letter-spacing: 3px;
 }
 
+.empty-cart-btn {
+  margin-bottom: 200px;
+}
+
 .watch-details-button:hover,
 .checkout-btn:hover,
 .delete-review-button:hover,

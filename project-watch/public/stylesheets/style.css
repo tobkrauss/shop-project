@@ -170,15 +170,15 @@ body {
   border-color: lightgrey; */
 }
 
-.search-home button {
-  /* height: 5.6vh;
+/* .search-home button {
+  height: 5.6vh;
   width: 7.5vw;
   font-size: 1.4em;
   background-color: #bf8970;
   border-color: #bf8970;
   color: black;
-  border-radius: 5px; */
-}
+  border-radius: 5px;
+} */
 
 .watch-grid {
   display: grid;

@@ -51,8 +51,9 @@
     {{#each this.reviews}}
     <div class="review-details">
     <h4>{{username}}</4>
-    <p><span>{{rating}}/5</span></p>
+    <span>(Rating: {{rating}}/5)</span>
     </div>
+    <p>{{createdAt}}</p>
     <p>{{description}}</p>
 {{/each}}
 </div>

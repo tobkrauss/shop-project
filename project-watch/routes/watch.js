@@ -3,6 +3,7 @@ const Review = require("../models/Review.model");
 const axios = require("axios");
 const Watch = require("../models/Watch.model");
 const Cart = require("../models/Cart.model");
+const { isLoggedin } = require("../middleware/route-guard");
 
 let arr = [
   {
@@ -382,7 +383,7 @@ router.post("/cart/add", async (req, res) => {
 });
 
 // review route
-router.post("/watches/:id", (req, res, next) => {
+router.post("/watches/:id", isLoggedin, (req, res, next) => {
   const watchID = req.params.id;
   const { username, description, rating } = req.body;
 

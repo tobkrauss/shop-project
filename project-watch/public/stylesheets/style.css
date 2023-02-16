@@ -266,7 +266,8 @@ body {
 }
 
 .watch-details-button,
-.checkout-btn {
+.checkout-btn,
+.empty-cart-btn {
   padding: 20px;
   text-transform: uppercase;
   background-color: black;
@@ -277,14 +278,16 @@ body {
 
 .watch-details-button:hover,
 .checkout-btn:hover,
-.delete-review-button:hover {
+.delete-review-button:hover,
+.empty-cart-btn:hover {
   background-color: #9a825c; /* Change the background color on hover */
   color: #000; /* Change the font color on hover */
   cursor: pointer; /* Change the mouse cursor to a pointer */
 }
 
 .watch-details-button:active,
-.checkout-btn:active {
+.checkout-btn:active,
+.empty-cart-btn:active {
   background-color: #9a825c; /* Change the background color on button press */
   color: #000; /* Change the font color on button press */
 }
@@ -453,21 +456,21 @@ body {
 }
 
 .review-description textarea {
- width: 400px;
+  width: 400px;
   justify-content: start;
   margin-bottom: 10px;
 }
 
 input::placeholder {
   display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: flex-start;
-	align-items: flex-start;
-	align-content: flex-start;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
 }
 
-.delete-review-button{
+.delete-review-button {
   margin-top: 10px;
   padding: 5px;
   width: 125px;
@@ -587,4 +590,15 @@ hr {
   width: 90%;
   margin: 0 auto;
   margin-top: 50px;
+}
+
+.empty-cart-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.margin-bottom-50 {
+  margin-bottom: 50px;
 }

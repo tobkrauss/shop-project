@@ -18,12 +18,20 @@ const userSchema = new Schema(
       enum: ["user", "admin"],
       default: "user",
     },
+    email: {
+      type: String,
+    },
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
     timestamps: true,
   }
 );
+
+userSchema.pre("save", function (next) {
+  this.email = `${this.username}@email.com`;
+  next();
+});
 
 const User = mongoose.model("User", userSchema);
 module.exports = User;

@@ -271,6 +271,7 @@ body {
   background-color: black;
   color: white;
   border: none;
+  margin-right: 25px;
 }
 
 .watch-details-button:hover,
@@ -284,6 +285,30 @@ body {
 .checkout-btn:active {
   background-color: #9a825c; /* Change the background color on button press */
   color: #000; /* Change the font color on button press */
+}
+
+.collection-btn {
+  padding: 20px;
+  text-transform: uppercase;
+  background-color: black;
+  color: white;
+  border: none;
+  margin-right: 25px;
+  background-color: white;
+  color: black;
+  border: solid black 1px;
+}
+
+.collection-btn:hover,
+.collection-btn:active {
+  color: #000; /* Change the font color on hover */
+  cursor: pointer; /* Change the mouse cursor to a pointer */
+}
+
+.form-container {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
 }
 
 .watch-details-model {
@@ -305,7 +330,7 @@ body {
 
 .watch-hero,
 .watch-image {
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  transition: transform 0.2s ease-in-out, opacity 0.5s ease-in-out;
 }
 
 .watch-hero:hover,

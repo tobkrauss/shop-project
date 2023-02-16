@@ -1,3 +1,5 @@
+<h1>YOUR WATCH COLLECTION</h1>
+
 <!-- HTML code -->
 <div class="shopping-cart">
   {{#each products}}
@@ -11,8 +13,8 @@
             <input type="hidden" name="productID" value="{{this.id}}" />
             <button type="submit" class="cart-btn-remove">Remove from cart</button>
           </form>
-          <form action="/collection/add" method="POST">
-            <input type="hidden" name="watchId" value="{{this.id}}" />
+          <form action="#" method="POST">
+            <input type="hidden" name="productID" value="{{this.id}}" />
             <button type="submit" class="cart-btn">Add to collection</button>
           </form>
         </div>

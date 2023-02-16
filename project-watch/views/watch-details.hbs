@@ -39,10 +39,19 @@
           <p class="watch-details-material">${{this.price}}</p>
         </div>
 
+        <div class="form-container">
+
         <form action="/cart/add" method="POST">
           <input type="hidden" name="watchID" value="{{this._id}}" />
           <button type="submit" class="watch-details-button">Add to Cart</button>
         </form>
+
+        <form action="/collection/add" method="POST">
+          <input type="hidden" name="watchId" value="{{this._id}}" />
+          <button type="submit" class="collection-btn">Add to Collection</button>
+        </form>
+
+        </div>
 
 {{!-- // List the reviews --}}
 <div class="review-container">

@@ -3,6 +3,7 @@ const Review = require("../models/Review.model");
 const axios = require("axios");
 const Watch = require("../models/Watch.model");
 const Cart = require("../models/Cart.model");
+const Collection = require("../models/Collection.model");
 
 let arr = [
   {
@@ -483,6 +484,73 @@ router.post("/cart/remove", async (req, res) => {
   req.session.successMessage = "Product removed from cart!";
 
   res.redirect("/cart");
+});
+
+// add to collection
+router.post("/collection/add", async (req, res) => {
+  const id = req.body.watchId;
+  console.log("THIS IS THE WATCH ID FROM THE COLLECTION FORM!");
+  const watch = await Watch.findById(id);
+
+  // check if the user is logged in
+  if (!req.user) {
+    // If the user is not logged in, set an error message in the session and redirect to the login page.
+    req.session.errorMessage =
+      "You need to log in to add products to the collection.";
+    return res.redirect("/login");
+  }
+
+  const userId = req.user._id;
+  console.log("THIS IS THS USERID!!!!*********");
+  console.log(userId);
+
+  // find the user collection
+  const collection = await Collection.findOneAndUpdate(
+    { userId },
+    {
+      $push: {
+        products: {
+          brand: watch.brand,
+          model: watch.model,
+          id: watch._id,
+          price: watch.price,
+          imageUrl: watch.imageUrl,
+        },
+      },
+    },
+    { upsert: true, new: true }
+  );
+  console.log("***COLLECTION BELOW!!!***");
+  console.log(collection);
+
+  // store the collection ID in the session
+  req.session.collectionId = collection._id;
+
+  // set a success message in the session
+  req.session.successMessage = "Added to collection!";
+  res.redirect("/collection");
+});
+
+// display collection
+router.get("/collection", async (req, res) => {
+  const collectionId = req.session.collectionId;
+  console.log("THIS IS THE COLLECTION ID!!!");
+  console.log(collectionId);
+  let products = [];
+  let price = 0;
+  // let quantity = 0;
+
+  if (collectionId) {
+    // find the collection for the current user
+    const collection = await Collection.findOne({ _id: collectionId });
+    const products = collection.products;
+    console.log("THIS IS THE PRODUCT!!!!");
+    console.log(products);
+
+    res.render("collection", {
+      products,
+    });
+  }
 });
 
 module.exports = router;

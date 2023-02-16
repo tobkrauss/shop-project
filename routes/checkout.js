@@ -30,8 +30,8 @@ router.post('/create-checkout-session', async (req, res) => {
        payment_method_types: ['card'],
        mode: 'payment',
        line_items: result,
-       success_url: `${process.env.SERVER_URL}checkout-success`,
-       cancel_url: `${process.env.SERVER_URL}cart`,
+       success_url: `${process.env.SERVER_URL}/checkout-success`,
+       cancel_url: `${process.env.SERVER_URL}/cart`,
   });
   console.log("PAYMENT SESSION CREATED")
   res.redirect(303, session.url)

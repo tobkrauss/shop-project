@@ -158,8 +158,8 @@ body {
 .watch-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  padding: 100px;
-  row-gap: 50px;
+  padding: 200px;
+  row-gap: 100px;
   column-gap: 100px;
 }
 
@@ -168,7 +168,7 @@ body {
   letter-spacing: 3px;
   text-align: center;
   margin-bottom: 10px;
-  font-size: 50px;
+  font-size: 16px;
 }
 
 .watch-index-description {
@@ -176,6 +176,8 @@ body {
   letter-spacing: 3px;
   text-align: center;
   margin-bottom: 10px;
+  font-size: 12px;
+  color: #444;
 }
 
 .watch-card {
@@ -186,12 +188,13 @@ body {
 }
 
 .watch-brand {
-  font-size: 18px;
+  font-size: 16px;
   margin-bottom: 10px;
   text-transform: uppercase;
   font-family: Helvetica;
   /* font-weight: 200; */
-  letter-spacing: 2px;
+  letter-spacing: 3px;
+  text-align: center;
 }
 
 .watch-title {

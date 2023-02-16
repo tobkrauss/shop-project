@@ -56,9 +56,10 @@
 <h2>REVIEWS</h2>
     {{#each this.reviews}}
     <div class="review-details">
-    <h4>Username: {{username}}</4>
-    <p><span>Rating: {{rating}}/5</span></p>
+    <h4>{{username}}</4>
+    <span>(Rating: {{rating}}/5)</span>
     </div>
+    <p>{{createdAt}}</p>
     <p>{{description}}</p>
 {{/each}}
 </div>
@@ -74,7 +75,7 @@
 <input type="number" max="5" name="rating" placeholder="Rating">
 
 <label for="text"></label>
-<input type="text" name="description" placeholder="Description (optional)" class="review-description">
+<input type="text" name="description" class="review-description" placeholder="Description (optional)">
 
 <button type="submit" class="watch-details-button">Add review</button>
 </form>

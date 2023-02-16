@@ -413,13 +413,13 @@ body {
 }
 
 .review-container h2 {
-  margin: 20px 0;
+  margin: 20px 0 0 0;
 }
 
 .review-details {
   display: flex;
   flex-direction: row;
-  margin: 0 10px 0 0;
+  margin: 30px 10px 10px 0;
   font-size: 1.3em;
   font-weight: bold;
 }
@@ -444,7 +444,16 @@ body {
 
 .review-description {
   height: 200px;
-  text-align: start;
+  justify-content: start;
+}
+
+input::placeholder {
+  display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	align-content: flex-start;
 }
 
 .shopping-image {

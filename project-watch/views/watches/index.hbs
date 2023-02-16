@@ -24,9 +24,10 @@
      <div class="watch-grid">
     {{#each watches}}
         <div class="watch-card">
-          <a href="/watches/{{this._id}}"><img class="watch-hero" src={{this.image}} alt="" /></a>
-          <h2 class="watch-index-title">{{this.brand}} {{this.model}}</h2>
-          <p class="watch-index-description">{{this.description}}</p>
+          <a href="/watches/{{this._id}}"><img class="watch-hero" src={{this.imageUrl}} alt="" /></a>
+
+          <h2 class="watch-brand">{{this.brand}} {{this.model}}</h2>
+          <p class="watch-description">{{this.movement}}</p>
         </div>
     {{/each}}
     </div>

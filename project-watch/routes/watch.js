@@ -3,6 +3,7 @@ const Review = require("../models/Review.model");
 const axios = require("axios");
 const Watch = require("../models/Watch.model");
 const Cart = require("../models/Cart.model");
+const User = require("../models/User.model");
 
 const Collection = require("../models/Collection.model");
 const { isLoggedin } = require("../middleware/route-guard");
@@ -325,8 +326,8 @@ router.get("/watches/:id", async (req, res) => {
   const watch = await Watch.findById(watchID).populate("reviews");
   console.log(watch);
   watch.reviews.forEach((review) => {
-review.dateForReview = review.createdAt.toUTCString()
-  })
+    review.dateForReview = review.createdAt.toUTCString();
+  });
   // res.send("fething watchs!");
   res.render("watch-details", watch);
 });
@@ -426,70 +427,82 @@ router.get("/watches/:id/delete", (req, res, next) => {
     .catch(err => next(err))
 }) */
 
-
-
-
 // display cart
+// router.get("/cart", async (req, res) => {
+//   const cartID = req.session.cartID;
+//   console.log("THIS IS THE CART ID");
+//   console.log(cartID);
+//   let products = [];
+//   let price = 0;
+//   // let quantity = 0;
+
+//   if (cartID) {
+//     // find the cart for the current user
+//     const cart = await Cart.findOne({ _id: cartID });
+//     if (cart) {
+//     }
+//     const products = cart.products;
+//     console.log("THIS IS THE PRODUCT!!!!");
+//     console.log(products);
+//     const price = cart.products.price;
+//     console.log("THIS IS THE PRICE!!!!!");
+//     console.log(price);
+//     let total = 0;
+//     for (let i = 0; i < products.length; i++) {
+//       total += parseInt(products[i].price);
+//       console.log("THIS IS THE TOTAL!");
+//       console.log(total);
+//     }
+//     res.render("cart", {
+//       products,
+//       total,
+//     });
+//   } else {
+//     res.render("cart", {
+//       message: "Your shopping cart is empty.",
+//     });
+//   }
+// });
+
+// router.get("/cart", async (req, res) => {
+//   const cartID = req.session.cartID;
+//   if (cartID) {
+//     // find the cart for the current user
+//     const cart = await Cart.findOne({ _id: cartID });
+//     const products = cart.products;
+//     let total = 0;
+//     for (let i = 0; i < products.length; i++) {
+//       total += parseInt(products[i].price);
+//     }
+//     res.render("cart", {
+//       products,
+//       total,
+//     });
+//   }
+// });
+
 router.get("/cart", async (req, res) => {
   const cartID = req.session.cartID;
-  console.log("THIS IS THE CART ID");
-  console.log(cartID);
-  let products = [];
-  let price = 0;
-  // let quantity = 0;
-
   if (cartID) {
     // find the cart for the current user
     const cart = await Cart.findOne({ _id: cartID });
-    const products = cart.products;
-    console.log("THIS IS THE PRODUCT!!!!");
-    console.log(products);
-    const price = cart.products.price;
-    console.log("THIS IS THE PRICE!!!!!");
-    console.log(price);
-    let total = 0;
-    for (let i = 0; i < products.length; i++) {
-      total += parseInt(products[i].price);
-      console.log("THIS IS THE TOTAL!");
-      console.log(total);
+    if (cart && cart.products.length > 0) {
+      const products = cart.products;
+      let total = 0;
+      for (let i = 0; i < products.length; i++) {
+        total += parseInt(products[i].price);
+      }
+      res.render("cart", {
+        products,
+        total,
+      });
+    } else {
+      res.render("cart", { message: "Your shopping cart is empty." });
     }
-    res.render("cart", {
-      products,
-      total,
-    });
+  } else {
+    res.render("cart", { message: "Your shopping cart does not exist." });
   }
 });
-
-// remove from cart
-// router.post("/cart/remove", async (req, res) => {
-//   try {
-//     console.log("THIS IS THE REQUEST BODY");
-//     console.log(req.body);
-//     const id = req.body.watchID;
-//     console.log("THIS IS THE WATCH ID!!!");
-//     console.log(id);
-//     console.log("HELLO FROM THE REMOVE ENDPOINT!");
-//     const cartID = req.session.cartID;
-//     console.log(cartID);
-//     const watch = await Watch.findById(id);
-//     const cart = await Cart.findOneAndUpdate(
-//       { _id: cartID },
-//       {
-//         $pull: {
-//           products: {
-//             id: watch._id,
-//           },
-//         },
-//       },
-//       { new: true }
-//     );
-//     // set a success message in the session
-//     req.session.successMessage = "Item removed from cart!";
-//     res.redirect("/cart");
-//   } catch (err) {
-//     console.log("ERROR IN REMOVING ITEM FROM CART");
-//   }
-// });
 
 // remove from cart
 router.post("/cart/remove", async (req, res) => {
@@ -605,6 +618,24 @@ router.post("/collection/remove", async (req, res) => {
   req.session.successMessage = "Product removed from collection!";
 
   res.redirect("/collection");
+});
+
+// display
+router.get("/user", async (req, res) => {
+  const userId = req.user.id;
+  console.log("THIS IS THE USER ID!");
+  console.log(userId);
+  try {
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).send("User not found");
+    }
+    // Render the profile page with the user details
+    res.render("profile", { user });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal server error");
+  }
 });
 
 module.exports = router;

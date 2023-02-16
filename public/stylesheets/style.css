@@ -587,6 +587,10 @@ input::placeholder {
   font-size: 16px;
 }
 
+.collection-title h1 {
+  margin-bottom: 400px;
+}
+
 .watch-index-info {
   /* text-transform: uppercase; */
   /* letter-spacing: 3px; */

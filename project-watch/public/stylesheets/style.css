@@ -328,13 +328,13 @@ body {
 .watch-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  justify-content: center;
-  align-items: center;
+  align-items: start;
   padding: 100px;
 }
 
 .watch-hero,
 .watch-image {
+  margin-top: 30px;
   transition: transform 0.2s ease-in-out, opacity 0.5s ease-in-out;
 }
 
@@ -428,15 +428,23 @@ body {
   font-weight: bold;
 }
 
-.review-details span {
-  color: #bf8970;
+.review-details p {
+  color: grey;
   font-style: italic;
-  font-size: 0.8em;
-  margin-bottom: 10px;
+  font-size: 0.6em;
+}
+
+.review-text span {
+  color: #bf8970;
+  font-style: bold;
+  font-size: 1em;
+  margin: 10px 0;
 }
 
 .review-text p {
-  margin-top: 10px;
+  width: 400px;
+  margin: 10px 0 2px 0;
+  font-family: Helvetica;
 }
 
 .add-review-container {
@@ -459,6 +467,7 @@ body {
   width: 400px;
   justify-content: start;
   margin-bottom: 10px;
+  font-family: Helvetica;
 }
 
 input::placeholder {

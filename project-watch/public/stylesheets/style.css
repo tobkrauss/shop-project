@@ -391,7 +391,16 @@ body {
 
 .review-description {
   height: 200px;
-  text-align: start;
+  justify-content: start;
+}
+
+input::placeholder {
+  display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	align-content: flex-start;
 }
 
 .shopping-image {

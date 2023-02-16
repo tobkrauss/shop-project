@@ -502,3 +502,39 @@ body {
   cursor: pointer;
   color: red;
 }
+
+.collection-info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 25px;
+  /* align-items: center; */
+  /* justify-content: left; */
+}
+
+.collection-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.watch-collection-title {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.watch-index-info {
+  /* text-transform: uppercase; */
+  /* letter-spacing: 3px; */
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #444;
+  text-align: left;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  /* font-family: monospace; */
+}

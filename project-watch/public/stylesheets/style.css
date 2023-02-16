@@ -110,7 +110,7 @@ body {
   font-size: 1.2em;
   text-align: center;
   padding: 40px 100px;
-  margin-bottom: 25px;
+  /* margin-bottom: 25px; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -162,12 +162,12 @@ body {
 }
 
 .search-home input {
-  width: 30vw;
+  /* width: 30vw;
   height: 5vh;
   font-size: 1.4em;
   border-radius: 5px;
   margin-right: 5px;
-  border-color: lightgrey;
+  border-color: lightgrey; */
 }
 
 .search-home button {
@@ -275,6 +275,7 @@ body {
   color: white;
   border: none;
   margin-right: 25px;
+  letter-spacing: 3px;
 }
 
 .watch-details-button:hover,
@@ -613,4 +614,62 @@ hr {
 
 .margin-bottom-50 {
   margin-bottom: 50px;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-input {
+  padding: 20px;
+  text-transform: uppercase;
+  background-color: white;
+  color: white;
+  border: none;
+  margin-right: 25px;
+  width: 300px;
+  border: 1px solid black;
+}
+
+.search-input:focus {
+  outline: none; /* Removes the default blue outline */
+  border-color: #9a825c; /* Sets the border color to red */
+  color: #444;
+  /* letter-spacing: 3px; */
+}
+
+.footer-logo {
+  color: white;
+  text-decoration: none;
+  /* margin-right: 50px; */
+  text-transform: uppercase;
+  /* text-align: center; */
+  margin-bottom: 10px;
+  font-size: 14px;
+  transition: color 0.1s ease-in-out;
+  /* padding-left: 100px; */
+  letter-spacing: 6px;
+}
+
+.address {
+  font-size: 16px;
+  font-family: Helvetica;
+}
+
+.address,
+.imprint-span,
+.imprint-copyright {
+  color: white;
+  text-transform: none;
+  font-style: normal;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 20px;
 }

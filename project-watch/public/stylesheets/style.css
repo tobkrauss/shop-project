@@ -247,7 +247,8 @@ body {
 }
 
 .watch-details-button:hover,
-.checkout-btn:hover {
+.checkout-btn:hover,
+.delete-review-button:hover {
   background-color: #9a825c; /* Change the background color on hover */
   color: #000; /* Change the font color on hover */
   cursor: pointer; /* Change the mouse cursor to a pointer */
@@ -378,6 +379,11 @@ body {
   margin-bottom: 10px;
 }
 
+.add-review-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .add-review-container h2 {
   margin-bottom: 20px;
 }
@@ -390,8 +396,9 @@ body {
 }
 
 .review-description {
-  height: 200px;
+  width: 400px;
   justify-content: start;
+  margin-bottom: 40px;
 }
 
 input::placeholder {
@@ -401,6 +408,16 @@ input::placeholder {
 	justify-content: flex-start;
 	align-items: flex-start;
 	align-content: flex-start;
+}
+
+.delete-review-button{
+  margin-top: 10px;
+  padding: 5px;
+  width: 125px;
+  text-transform: uppercase;
+  background-color: grey;
+  color: white;
+  border: none;
 }
 
 .shopping-image {

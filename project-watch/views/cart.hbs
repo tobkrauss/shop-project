@@ -1,4 +1,10 @@
 <!-- HTML code -->
+<div class="collection-title">
+  <h1 class="collection-title-text">Your shopping cart</h1>
+</div>
+
+<hr />
+
 <div class="shopping-cart">
   {{#each products}}
     <div class="shopping-card">
@@ -11,8 +17,8 @@
             <input type="hidden" name="productID" value="{{this.id}}" />
             <button type="submit" class="cart-btn-remove">Remove from cart</button>
           </form>
-          <form action="#" method="POST">
-            <input type="hidden" name="productID" value="{{this.id}}" />
+          <form action="/collection/add" method="POST">
+            <input type="hidden" name="watchId" value="{{this.id}}" />
             <button type="submit" class="cart-btn">Add to collection</button>
           </form>
         </div>

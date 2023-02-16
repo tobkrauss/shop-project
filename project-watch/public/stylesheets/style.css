@@ -49,7 +49,21 @@ body {
   height: 100px;
   display: flex;
   align-items: center;
-  justify-content: right;
+  justify-content: space-between;
+  margin-bottom: 100px;
+}
+
+.nav-logo {
+  color: white;
+  text-decoration: none;
+  margin-right: 50px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 20px;
+  transition: color 0.1s ease-in-out;
+  padding-left: 100px;
+  letter-spacing: 6px;
 }
 
 .navbar-left {
@@ -70,9 +84,20 @@ body {
 }
 
 .nav-btn {
-  color: #bf8970;
+  color: white;
   text-decoration: none;
   margin-right: 50px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 12px;
+  transition: color 0.1s ease-in-out;
+}
+
+.nav-btn:hover,
+.nav-btn:active {
+  color: #9a825c;
 }
 
 .nav-home {
@@ -158,8 +183,8 @@ body {
 .watch-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  padding: 100px;
-  row-gap: 50px;
+  padding: 200px;
+  row-gap: 100px;
   column-gap: 100px;
 }
 
@@ -168,7 +193,7 @@ body {
   letter-spacing: 3px;
   text-align: center;
   margin-bottom: 10px;
-  font-size: 50px;
+  font-size: 16px;
 }
 
 .watch-index-description {
@@ -176,6 +201,8 @@ body {
   letter-spacing: 3px;
   text-align: center;
   margin-bottom: 10px;
+  font-size: 12px;
+  color: #444;
 }
 
 .watch-card {
@@ -186,12 +213,13 @@ body {
 }
 
 .watch-brand {
-  font-size: 18px;
+  font-size: 16px;
   margin-bottom: 10px;
   text-transform: uppercase;
   font-family: Helvetica;
   /* font-weight: 200; */
-  letter-spacing: 2px;
+  letter-spacing: 3px;
+  text-align: center;
 }
 
 .watch-title {
@@ -244,6 +272,7 @@ body {
   background-color: black;
   color: white;
   border: none;
+  margin-right: 25px;
 }
 
 .watch-details-button:hover,
@@ -258,6 +287,30 @@ body {
 .checkout-btn:active {
   background-color: #9a825c; /* Change the background color on button press */
   color: #000; /* Change the font color on button press */
+}
+
+.collection-btn {
+  padding: 20px;
+  text-transform: uppercase;
+  background-color: black;
+  color: white;
+  border: none;
+  margin-right: 25px;
+  background-color: white;
+  color: black;
+  border: solid black 1px;
+}
+
+.collection-btn:hover,
+.collection-btn:active {
+  color: #000; /* Change the font color on hover */
+  cursor: pointer; /* Change the mouse cursor to a pointer */
+}
+
+.form-container {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
 }
 
 .watch-details-model {
@@ -279,7 +332,7 @@ body {
 
 .watch-hero,
 .watch-image {
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  transition: transform 0.2s ease-in-out, opacity 0.5s ease-in-out;
 }
 
 .watch-hero:hover,
@@ -312,7 +365,7 @@ body {
 
 .shopping-card {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1.5fr 2fr 1fr;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 50px;
@@ -431,6 +484,7 @@ input::placeholder {
 .shopping-text {
   list-style: none;
   width: 300px;
+  margin-right: 50px;
 }
 
 .shopping-name {
@@ -479,4 +533,58 @@ input::placeholder {
 .cart-btn-remove:active {
   cursor: pointer;
   color: red;
+}
+
+.collection-title-text {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.collection-info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 25px;
+  /* align-items: center; */
+  /* justify-content: left; */
+}
+
+.collection-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.watch-collection-title {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.watch-index-info {
+  /* text-transform: uppercase; */
+  /* letter-spacing: 3px; */
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #444;
+  text-align: left;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  /* font-family: monospace; */
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: #333;
+  margin: 20px 0;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 50px;
 }

@@ -1,35 +1,29 @@
 <h1>YOUR WATCH COLLECTION</h1>
 
-<!-- HTML code -->
-<div class="shopping-cart">
-  {{#each products}}
-    <div class="shopping-card">
-      <img class="shopping-image" src={{this.imageUrl}} alt="" />
-      <ul class="shopping-text">
-        <li class="shopping-name">{{this.brand}} {{this.model}}</li>
-        <li class="shopping-stock">In Stock</li>
+  <div class="watch-grid">
+    {{#each products}}
+      <div class="watch-card">
+        <a href="/watches/{{this._id}}"><img
+            class="watch-hero"
+            src={{this.imageUrl}}
+            alt=""
+          /></a>
+
+        <h2 class="watch-index-title">{{this.brand}} {{this.model}}</h2>
+        <p class="watch-index-description">{{this.movement}}</p>
         <div class="shopping-forms">
-          <form action="/cart/remove" method="POST">
+                <form action="/cart/add" method="POST">
+          <input type="hidden" name="watchID" value="{{this._id}}" />
+          <button type="submit" class="cart-btn-remove">Add to Cart</button>
+        </form>
+          <form action="/collection/remove" method="POST">
             <input type="hidden" name="productID" value="{{this.id}}" />
-            <button type="submit" class="cart-btn-remove">Remove from cart</button>
-          </form>
-          <form action="#" method="POST">
-            <input type="hidden" name="productID" value="{{this.id}}" />
-            <button type="submit" class="cart-btn">Add to collection</button>
+            <button type="submit" class="cart-btn-remove">Remove from collection</button>
           </form>
         </div>
-      </ul>
-      <li class="shopping-price">USD {{this.price}}</li>
-    </div>
-  {{/each}}
-  <div class="shopping-total">Total: USD
-    <span id="total-price"> {{total}} </span>
+      </div>
+    {{/each}}
   </div>
-  <img src="/images/paymentmethods.png" alt="" class="shopping-methods" />
-  <form action="#" method="POST">
-    <input type="hidden" name="#" value="{{this._id}}" />
-    <button type="submit" class="checkout-btn">Proceed to Checkout</button>
-  </form>
 
 </div>
 <p>this is the updateded version 10:31am</p>

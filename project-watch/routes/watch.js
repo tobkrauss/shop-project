@@ -515,6 +515,7 @@ router.post("/collection/add", async (req, res) => {
           id: watch._id,
           price: watch.price,
           imageUrl: watch.imageUrl,
+          movement: watch.movement,
         },
       },
     },
@@ -551,6 +552,28 @@ router.get("/collection", async (req, res) => {
       products,
     });
   }
+});
+
+// remove from collection
+router.post("/collection/remove", async (req, res) => {
+  const productId = req.body.productID;
+  const collectionId = req.session.collectionId;
+
+  // find the collection by ID
+  const collection = await Collection.findById(collectionId);
+
+  // remove the product from the products array in the collection
+  collection.products = collection.products.filter(
+    (product) => product.id.toString() !== productId.toString()
+  );
+
+  // save the updated collection
+  await collection.save();
+
+  // set a success message in the session
+  req.session.successMessage = "Product removed from collection!";
+
+  res.redirect("/collection");
 });
 
 module.exports = router;

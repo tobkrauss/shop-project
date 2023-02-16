@@ -50,6 +50,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 100px;
 }
 
 .nav-logo {
@@ -363,7 +364,7 @@ body {
 
 .shopping-card {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1.5fr 2fr 1fr;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 50px;
@@ -453,6 +454,7 @@ body {
 .shopping-text {
   list-style: none;
   width: 300px;
+  margin-right: 50px;
 }
 
 .shopping-name {
@@ -503,6 +505,14 @@ body {
   color: red;
 }
 
+.collection-title-text {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
 .collection-info {
   display: flex;
   flex-direction: column;
@@ -537,4 +547,14 @@ body {
   text-align: left;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   /* font-family: monospace; */
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: #333;
+  margin: 20px 0;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 50px;
 }

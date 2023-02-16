@@ -335,6 +335,7 @@ router.get("/watches/:id", async (req, res) => {
 //Search specific watch by Brand name
 router.get("/watch-search", async (req, res) => {
   const { brand } = req.query;
+  
   const watches = await Watch.find({ brand });
 
   res.render("watches/index", { watches });
@@ -356,7 +357,7 @@ router.post("/cart/add", async (req, res) => {
     // If the user is not logged in, set an error message in the session and redirect to the login page.
     req.session.errorMessage =
       "You need to log in to add products to the cart.";
-    return res.redirect("/login");
+    return res.redirect("/auth/login");
   }
 
   const userId = req.user._id;
@@ -484,7 +485,7 @@ router.post("/collection/add", async (req, res) => {
     // If the user is not logged in, set an error message in the session and redirect to the login page.
     req.session.errorMessage =
       "You need to log in to add products to the collection.";
-    return res.redirect("/login");
+    return res.redirect("/auth/login");
   }
 
   const userId = req.user._id;

@@ -1,5 +1,23 @@
+{{#if message}}
+
+  <div class="empty-cart-container">
+    <div class="collection-title margin-bottom-50">
+      <h1 class="collection-title-text">
+        Hello,
+        {{user.username}},
+        {{message}}
+
+      </h1>
+    </div>
+
+    <a href="/"><button type="submit" class="empty-cart-btn">Find your next
+        watch</button></a>
+  </div>
+
+{{else}}
+
 <div class="collection-title">
-    <h1 class="collection-title-text"> Welcome back, {{user.username}}. <br> Here's your watch collection</h1>
+    <h1 class="collection-title-text"> Welcome back, {{user.username}}. Here's your watch collection.</h1>
 </div>
 
 <hr>
@@ -50,3 +68,5 @@
 
 </div>
 <p>this is the updateded version 10:31am</p>
+
+{{/if}}

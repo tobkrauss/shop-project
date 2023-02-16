@@ -171,13 +171,13 @@ body {
 }
 
 .search-home button {
-  height: 5.6vh;
+  /* height: 5.6vh;
   width: 7.5vw;
   font-size: 1.4em;
   background-color: #bf8970;
   border-color: #bf8970;
   color: black;
-  border-radius: 5px;
+  border-radius: 5px; */
 }
 
 .watch-grid {
@@ -267,7 +267,8 @@ body {
 
 .watch-details-button,
 .checkout-btn,
-.empty-cart-btn {
+.empty-cart-btn,
+.home-btn {
   padding: 20px;
   text-transform: uppercase;
   background-color: black;
@@ -279,7 +280,8 @@ body {
 .watch-details-button:hover,
 .checkout-btn:hover,
 .delete-review-button:hover,
-.empty-cart-btn:hover {
+.empty-cart-btn:hover,
+.home-btn:hover {
   background-color: #9a825c; /* Change the background color on hover */
   color: #000; /* Change the font color on hover */
   cursor: pointer; /* Change the mouse cursor to a pointer */
@@ -287,7 +289,8 @@ body {
 
 .watch-details-button:active,
 .checkout-btn:active,
-.empty-cart-btn:active {
+.empty-cart-btn:active,
+.home-btn:active {
   background-color: #9a825c; /* Change the background color on button press */
   color: #000; /* Change the font color on button press */
 }

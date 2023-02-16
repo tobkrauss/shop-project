@@ -1,0 +1,91 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+   
+    <div class="watch-details-title-container">
+      <h1 class="watch-details-title">{{this.brand}} {{this.model}}</h1>
+      <p class="watch-details-movement">{{this.movement}}</p>
+    </div>
+
+    <div class="watch-container">
+      <div class="watch-image">
+        <img class="watch-image" src={{this.imageUrl}} alt="" />
+      </div>
+      <div class="watch-text">
+        <h2 class="watch-details-description">{{this.description}}</h2>
+        <div class="watch-row">
+          <h2 class="watch-label">Case</h2>
+          <p class="watch-details-material">{{this.caseMaterial}}</p>
+        </div>
+        <div class="watch-row">
+          <h2 class="watch-label">Band</h2>
+          <p class="watch-details-material">{{this.bandMaterial}}</p>
+        </div>
+        <div class="watch-row">
+          <h2 class="watch-label">Features</h2>
+          <p class="watch-details-material">{{this.features}}</p>
+        </div>
+        <div class="watch-row">
+          <h2 class="watch-label">Price</h2>
+          <p class="watch-details-material">${{this.price}}</p>
+        </div>
+
+        <div class="form-container">
+
+        <form action="/cart/add" method="POST">
+          <input type="hidden" name="watchID" value="{{this._id}}" />
+          <button type="submit" class="watch-details-button">Add to Cart</button>
+        </form>
+
+        <form action="/collection/add" method="POST">
+          <input type="hidden" name="watchId" value="{{this._id}}" />
+          <button type="submit" class="collection-btn">Add to Collection</button>
+        </form>
+
+        </div>
+
+{{!-- // List the reviews --}}
+<div class="review-container">
+<hr>
+<h2>REVIEWS</h2>
+    {{#each this.reviews}}
+    <div class="review-details">
+    <h4>{{username}}</4>
+    <p>{{dateForReview}}</p>
+    </div>
+    <p></p>
+    <div class="review-text">
+    <p>{{description}}</p>
+    <span>(Rating: {{rating}}/5)</span>
+    </div>
+{{/each}}
+</div>
+
+{{!-- Add Watch Review --}}
+<div class="add-review-container">
+<h2>Write a review</h2>
+<form action="/watches/{{this._id}}" method="POST">
+<label for="user"></label>
+<input type="text" name="username" placeholder="Username">
+
+<label for="rating"></label>
+<input type="number" max="5" name="rating" placeholder="Rating">
+<div class="review-description">
+<label for="text"></label>
+<textarea name="description"  placeholder="Type your review here" cols="30" rows="10"></textarea>
+</div>
+<button type="submit" class="watch-details-button">Add review</button>
+</form>
+</div>
+
+  </div>
+</div>
+
+  </body>
+</html>

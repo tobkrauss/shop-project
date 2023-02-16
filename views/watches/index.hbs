@@ -1,0 +1,34 @@
+<section class="search-home">
+
+  {{! <form action="/watch-search" class="search-form" method="GET">
+    <div class="search-container">
+      <div class="search-input">
+        <label for="query"></label>
+        <input
+          type="text"
+          id="query"
+          name="brand"
+          placeholder="Find your favourite brand..."
+        />
+      </div>
+      <div class="search-bar">
+        <button type="submit" class="home-btn">Search</button>
+      </div>
+    </div>
+  </form> }}
+
+</section>
+<div class="watch-grid">
+  {{#each watches}}
+    <div class="watch-card">
+      <a href="/watches/{{this._id}}"><img
+          class="watch-hero"
+          src={{this.imageUrl}}
+          alt=""
+        /></a>
+
+      <h2 class="watch-brand">{{this.brand}} {{this.model}}</h2>
+      <p class="watch-description">{{this.movement}}</p>
+    </div>
+  {{/each}}
+</div>

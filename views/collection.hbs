@@ -1,0 +1,72 @@
+{{#if message}}
+
+  <div class="empty-cart-container">
+    <div class="collection-title margin-bottom-50">
+      <h1 class="collection-title-text">
+        Hello,
+        {{user.username}},
+        {{message}}
+
+      </h1>
+    </div>
+
+    <a href="/"><button type="submit" class="empty-cart-btn">Find your next
+        watch</button></a>
+  </div>
+
+{{else}}
+
+<div class="collection-title">
+    <h1 class="collection-title-text"> Welcome back, {{user.username}}. Here's your watch collection.</h1>
+</div>
+
+<hr>
+
+  <div class="watch-grid">
+    {{#each products}}
+      <div class="watch-card">
+        <div class="collection-container">
+        <div class="collection-row">
+        <a href="/watches/{{this._id}}"><img
+            class="watch-hero"
+            src={{this.imageUrl}}
+            alt=""
+          /></a>
+          </div>
+          <div class="collection-row">
+        <h2 class="watch-collection-title">{{this.brand}} {{this.model}}</h2>
+        <p class="watch-index-description">{{this.movement}}</p>
+        </div>
+<div class="collection-row">
+           <div class="shopping-forms">
+                <form action="/cart/add" method="POST">
+          <input type="hidden" name="watchID" value="{{this._id}}" />
+          <button type="submit" class="cart-btn-remove">Add to Cart</button>
+        </form>
+          <form action="/collection/remove" method="POST">
+            <input type="hidden" name="productID" value="{{this.id}}" />
+            <button type="submit" class="cart-btn-remove">Remove from collection</button>
+          </form>
+        </div>
+        </div>
+
+
+<div class="collection-row">
+        <div class="collection-info">
+        <p class="watch-index-info">Case: {{this.caseMaterial}}</p>
+        <p class="watch-index-info">Band: {{this.bandMaterial}}</p>
+        <p class="watch-index-info">Water Resistance: {{this.waterResistance}}</p>
+        <p class="watch-index-info">Fetaures: {{this.features}}</p>
+        </div>
+        </div>
+
+
+     </div>
+      </div>
+    {{/each}}
+  </div>
+
+</div>
+{{!-- <p>this is the updateded version 10:31am</p> --}}
+
+{{/if}}

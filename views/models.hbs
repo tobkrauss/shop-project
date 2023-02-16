@@ -1,0 +1,12 @@
+{{family}}
+<ul class="models-grid">
+  {{#each response}}
+    <li class="model">
+      <a href="/models/{{../family}}/{{this.modelName}}">
+        <h1>{{this.modelName}}</h1>
+  <img src="{{../image}}" alt="">
+
+      </a>
+    </li>
+  {{/each}}
+</ul>

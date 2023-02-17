@@ -20,6 +20,14 @@ body {
   padding: 20px;
 }
 
+.login-box h1 {
+  margin-bottom: 10px;
+}
+
+.login-box p {
+  margin-bottom: 30px;
+}
+
 .login-form {
   display: flex;
   flex-direction: column;
